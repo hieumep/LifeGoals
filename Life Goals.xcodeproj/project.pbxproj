@@ -14,6 +14,9 @@
 		5123EE351E5BE79E00087C2D /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE341E5BE79E00087C2D /* GoalViewController.swift */; };
 		5123EE381E5C041B00087C2D /* ExtendUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE371E5C041B00087C2D /* ExtendUIColor.swift */; };
 		5123EE3C1E5D700200087C2D /* ShortLifeGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */; };
+		5123EE3E1E5E04DC00087C2D /* LongLifeGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE3D1E5E04DC00087C2D /* LongLifeGoalsViewController.swift */; };
+		5123EE401E5E0FF200087C2D /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE3F1E5E0FF200087C2D /* CoreDataStackManager.swift */; };
+		5123EE431E5E132100087C2D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE411E5E132100087C2D /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		5123EE341E5BE79E00087C2D /* GoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 		5123EE371E5C041B00087C2D /* ExtendUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendUIColor.swift; sourceTree = "<group>"; };
 		5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortLifeGoalsViewController.swift; sourceTree = "<group>"; };
+		5123EE3D1E5E04DC00087C2D /* LongLifeGoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongLifeGoalsViewController.swift; sourceTree = "<group>"; };
+		5123EE3F1E5E0FF200087C2D /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		5123EE421E5E132100087C2D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +66,15 @@
 			children = (
 				5123EE361E5C040100087C2D /* Extend Class */,
 				5123EE221E5BDF5B00087C2D /* AppDelegate.swift */,
+				5123EE3D1E5E04DC00087C2D /* LongLifeGoalsViewController.swift */,
 				5123EE261E5BDF5B00087C2D /* Main.storyboard */,
 				5123EE291E5BDF5B00087C2D /* Assets.xcassets */,
 				5123EE2B1E5BDF5B00087C2D /* LaunchScreen.storyboard */,
 				5123EE2E1E5BDF5B00087C2D /* Info.plist */,
 				5123EE341E5BE79E00087C2D /* GoalViewController.swift */,
 				5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */,
+				5123EE3F1E5E0FF200087C2D /* CoreDataStackManager.swift */,
+				5123EE411E5E132100087C2D /* DataModel.xcdatamodeld */,
 			);
 			path = "Life Goals";
 			sourceTree = "<group>";
@@ -154,7 +163,10 @@
 				5123EE231E5BDF5B00087C2D /* AppDelegate.swift in Sources */,
 				5123EE381E5C041B00087C2D /* ExtendUIColor.swift in Sources */,
 				5123EE3C1E5D700200087C2D /* ShortLifeGoalsViewController.swift in Sources */,
+				5123EE431E5E132100087C2D /* DataModel.xcdatamodeld in Sources */,
 				5123EE351E5BE79E00087C2D /* GoalViewController.swift in Sources */,
+				5123EE3E1E5E04DC00087C2D /* LongLifeGoalsViewController.swift in Sources */,
+				5123EE401E5E0FF200087C2D /* CoreDataStackManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +331,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5123EE411E5E132100087C2D /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5123EE421E5E132100087C2D /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 5123EE421E5E132100087C2D /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5123EE171E5BDF5A00087C2D /* Project object */;
 }
