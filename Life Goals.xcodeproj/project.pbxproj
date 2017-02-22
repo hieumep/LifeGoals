@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		5123EE231E5BDF5B00087C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE221E5BDF5B00087C2D /* AppDelegate.swift */; };
-		5123EE251E5BDF5B00087C2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE241E5BDF5B00087C2D /* ViewController.swift */; };
 		5123EE281E5BDF5B00087C2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5123EE261E5BDF5B00087C2D /* Main.storyboard */; };
 		5123EE2A1E5BDF5B00087C2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5123EE291E5BDF5B00087C2D /* Assets.xcassets */; };
 		5123EE2D1E5BDF5B00087C2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5123EE2B1E5BDF5B00087C2D /* LaunchScreen.storyboard */; };
+		5123EE351E5BE79E00087C2D /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE341E5BE79E00087C2D /* GoalViewController.swift */; };
+		5123EE381E5C041B00087C2D /* ExtendUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE371E5C041B00087C2D /* ExtendUIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5123EE1F1E5BDF5B00087C2D /* Life Goals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Life Goals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5123EE221E5BDF5B00087C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5123EE241E5BDF5B00087C2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5123EE271E5BDF5B00087C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5123EE291E5BDF5B00087C2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5123EE2C1E5BDF5B00087C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5123EE2E1E5BDF5B00087C2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5123EE341E5BE79E00087C2D /* GoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
+		5123EE371E5C041B00087C2D /* ExtendUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendUIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		5123EE211E5BDF5B00087C2D /* Life Goals */ = {
 			isa = PBXGroup;
 			children = (
+				5123EE361E5C040100087C2D /* Extend Class */,
 				5123EE221E5BDF5B00087C2D /* AppDelegate.swift */,
-				5123EE241E5BDF5B00087C2D /* ViewController.swift */,
 				5123EE261E5BDF5B00087C2D /* Main.storyboard */,
 				5123EE291E5BDF5B00087C2D /* Assets.xcassets */,
 				5123EE2B1E5BDF5B00087C2D /* LaunchScreen.storyboard */,
 				5123EE2E1E5BDF5B00087C2D /* Info.plist */,
+				5123EE341E5BE79E00087C2D /* GoalViewController.swift */,
 			);
 			path = "Life Goals";
+			sourceTree = "<group>";
+		};
+		5123EE361E5C040100087C2D /* Extend Class */ = {
+			isa = PBXGroup;
+			children = (
+				5123EE371E5C041B00087C2D /* ExtendUIColor.swift */,
+			);
+			name = "Extend Class";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5123EE251E5BDF5B00087C2D /* ViewController.swift in Sources */,
 				5123EE231E5BDF5B00087C2D /* AppDelegate.swift in Sources */,
+				5123EE381E5C041B00087C2D /* ExtendUIColor.swift in Sources */,
+				5123EE351E5BE79E00087C2D /* GoalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +312,7 @@
 				5123EE331E5BDF5B00087C2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
