@@ -13,6 +13,7 @@
 		5123EE2D1E5BDF5B00087C2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5123EE2B1E5BDF5B00087C2D /* LaunchScreen.storyboard */; };
 		5123EE351E5BE79E00087C2D /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE341E5BE79E00087C2D /* GoalViewController.swift */; };
 		5123EE381E5C041B00087C2D /* ExtendUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE371E5C041B00087C2D /* ExtendUIColor.swift */; };
+		5123EE3C1E5D700200087C2D /* ShortLifeGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5123EE2E1E5BDF5B00087C2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5123EE341E5BE79E00087C2D /* GoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 		5123EE371E5C041B00087C2D /* ExtendUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendUIColor.swift; sourceTree = "<group>"; };
+		5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortLifeGoalsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				5123EE2B1E5BDF5B00087C2D /* LaunchScreen.storyboard */,
 				5123EE2E1E5BDF5B00087C2D /* Info.plist */,
 				5123EE341E5BE79E00087C2D /* GoalViewController.swift */,
+				5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */,
 			);
 			path = "Life Goals";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			files = (
 				5123EE231E5BDF5B00087C2D /* AppDelegate.swift in Sources */,
 				5123EE381E5C041B00087C2D /* ExtendUIColor.swift in Sources */,
+				5123EE3C1E5D700200087C2D /* ShortLifeGoalsViewController.swift in Sources */,
 				5123EE351E5BE79E00087C2D /* GoalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
