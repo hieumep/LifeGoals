@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Goals" representedClassName="Goals" syncable="YES" codeGenerationType="class">
+    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
         <attribute name="createdDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="doneDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="expiredDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="goal" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="goalDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idGoal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="points" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shortTerm" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="starts" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="goals" inverseEntity="Note" syncable="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
+        <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="noteDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="notes" inverseEntity="Goal" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Goals" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Goal" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Note" positionX="-54" positionY="72" width="128" height="120"/>
     </elements>
 </model>
