@@ -9,6 +9,7 @@
 import CoreData
 
 class NoteObject :NSManagedObject {
+    
     struct keys {
         static let note = "note"
         static let noteDescription = "noteDescription"

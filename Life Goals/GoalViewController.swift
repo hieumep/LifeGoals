@@ -34,7 +34,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         longPress.delegate = self
         saveButton.addGestureRecognizer(longPress)
         setupLayout()
-       
+        
         // Do any additional setup after loading the view.
     }
     
@@ -145,13 +145,14 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         if gestureRecoginer.state == UIGestureRecognizerState.ended {
            // saveButton.setTitle("Saved", for: .normal)
            // saveButton.isEnabled = false
+            saveOrEditData()
             let _ = navigationController?.popViewController(animated: true)
         }
     }
     
     //conform protocol gesture recognizer and set action when start to hold button
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        print("touch")
+      //  print("touch")
         self.saveButton.alpha = 1
         UIView.animate(withDuration: 3, animations: {
             self.saveButton.alpha = 1
@@ -169,7 +170,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             item[GoalObject.keys.expiredDate] = expiredDate as AnyObject
             item[GoalObject.keys.createdDate] = Date() as AnyObject
             item[GoalObject.keys.photo_path] = ImageCache.sharedInstance().setImageRetunPath(image: self.image, date: Date()) as AnyObject
-            let _ = GoalObject(goalItem: item, context: context)
+            let _ = GoalObject(goalItem: item, context: context)           
             saveContext()
         }
     }

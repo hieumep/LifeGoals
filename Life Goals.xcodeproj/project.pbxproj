@@ -11,6 +11,7 @@
 		511198D91E6165BF0080CF26 /* DateConvenient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511198D81E6165BF0080CF26 /* DateConvenient.swift */; };
 		511198DB1E6166FE0080CF26 /* ExtendDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511198DA1E6166FE0080CF26 /* ExtendDate.swift */; };
 		511198DD1E64BC6D0080CF26 /* extentionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511198DC1E64BC6D0080CF26 /* extentionClass.swift */; };
+		511198DF1E65F5460080CF26 /* GoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511198DE1E65F5460080CF26 /* GoalsTableViewCell.swift */; };
 		5123EE231E5BDF5B00087C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE221E5BDF5B00087C2D /* AppDelegate.swift */; };
 		5123EE281E5BDF5B00087C2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5123EE261E5BDF5B00087C2D /* Main.storyboard */; };
 		5123EE2A1E5BDF5B00087C2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5123EE291E5BDF5B00087C2D /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		5123EE431E5E132100087C2D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE411E5E132100087C2D /* DataModel.xcdatamodeld */; };
 		5123EE451E5FE24A00087C2D /* GoalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE441E5FE24A00087C2D /* GoalObject.swift */; };
 		5123EE471E5FEC2800087C2D /* NoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE461E5FEC2800087C2D /* NoteObject.swift */; };
+		512FD77E1E669FE9005A22E5 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD77D1E669FE9005A22E5 /* DoneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,7 @@
 		511198D81E6165BF0080CF26 /* DateConvenient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateConvenient.swift; sourceTree = "<group>"; };
 		511198DA1E6166FE0080CF26 /* ExtendDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendDate.swift; sourceTree = "<group>"; };
 		511198DC1E64BC6D0080CF26 /* extentionClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extentionClass.swift; sourceTree = "<group>"; };
+		511198DE1E65F5460080CF26 /* GoalsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsTableViewCell.swift; sourceTree = "<group>"; };
 		5123EE1F1E5BDF5B00087C2D /* Life Goals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Life Goals.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5123EE221E5BDF5B00087C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5123EE271E5BDF5B00087C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		5123EE421E5E132100087C2D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		5123EE441E5FE24A00087C2D /* GoalObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalObject.swift; sourceTree = "<group>"; };
 		5123EE461E5FEC2800087C2D /* NoteObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteObject.swift; sourceTree = "<group>"; };
+		512FD77D1E669FE9005A22E5 /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				5123EE341E5BE79E00087C2D /* GoalViewController.swift */,
 				5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */,
 				5123EE411E5E132100087C2D /* DataModel.xcdatamodeld */,
+				512FD77D1E669FE9005A22E5 /* DoneViewController.swift */,
 			);
 			path = "Life Goals";
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 				5123EE371E5C041B00087C2D /* ExtendUIColor.swift */,
 				511198DA1E6166FE0080CF26 /* ExtendDate.swift */,
 				511198DC1E64BC6D0080CF26 /* extentionClass.swift */,
+				511198DE1E65F5460080CF26 /* GoalsTableViewCell.swift */,
 			);
 			name = "Extend Class";
 			sourceTree = "<group>";
@@ -195,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				511198D71E6159D50080CF26 /* ImageCache.swift in Sources */,
+				512FD77E1E669FE9005A22E5 /* DoneViewController.swift in Sources */,
 				5123EE231E5BDF5B00087C2D /* AppDelegate.swift in Sources */,
 				511198D91E6165BF0080CF26 /* DateConvenient.swift in Sources */,
 				5123EE381E5C041B00087C2D /* ExtendUIColor.swift in Sources */,
@@ -204,6 +211,7 @@
 				5123EE351E5BE79E00087C2D /* GoalViewController.swift in Sources */,
 				5123EE451E5FE24A00087C2D /* GoalObject.swift in Sources */,
 				511198DB1E6166FE0080CF26 /* ExtendDate.swift in Sources */,
+				511198DF1E65F5460080CF26 /* GoalsTableViewCell.swift in Sources */,
 				5123EE3E1E5E04DC00087C2D /* LongLifeGoalsViewController.swift in Sources */,
 				5123EE401E5E0FF200087C2D /* CoreDataStackManager.swift in Sources */,
 				511198DD1E64BC6D0080CF26 /* extentionClass.swift in Sources */,
