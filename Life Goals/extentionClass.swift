@@ -16,6 +16,61 @@ extension GoalViewController : UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
             textView.text = "Your goals description..."
+        }        
+    }
+    
+    func tapHideKeyboard(){
+        self.view.endEditing(true)
+    }
+    
+    func addKeyboardDismissRecoginze() {
+        self.view.addGestureRecognizer(tapGesture!)
+    }
+    
+    func removeKeyboardDismissRecoginze() {
+        self.view.removeGestureRecognizer(tapGesture!)
+    }
+
+    
+}
+
+extension DoneViewController : UITextViewDelegate, UIGestureRecognizerDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "What do you got it after complete your goal ..." {
+            textView.text = ""
         }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "What do you got it after complete your goal ..."
+        }
+    }
+    
+    func tapHideKeyboard(){
+        self.view.endEditing(true)
+    }
+    
+    func addKeyboardDismissRecoginze() {
+        self.view.addGestureRecognizer(tapGesture!)
+    }
+    
+    func removeKeyboardDismissRecoginze() {
+        self.view.removeGestureRecognizer(tapGesture!)
+    }
+
+    func longPressToSave(gestureRecognizer : UIGestureRecognizer) {
+        if gestureRecognizer.state == .ended {
+            saveData()
+            _ = navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        doneButton.alpha = 0.3
+        UIView.animate(withDuration: 3, animations: {
+            self.doneButton.alpha = 1
+        })
+        return true
     }
 }

@@ -97,23 +97,12 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         datePicker.isHidden = flagDate
     }
   
-    func addKeyboardDismissRecoginze() {
-        self.view.addGestureRecognizer(tapGesture!)
-    }
-    
-    func removeKeyboardDismissRecoginze() {
-        self.view.removeGestureRecognizer(tapGesture!)
-    }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func tapHideKeyboard(){
-        self.view.endEditing(true)
-    }
-
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         removeKeyboardDismissRecoginze()
@@ -153,7 +142,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     //conform protocol gesture recognizer and set action when start to hold button
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
       //  print("touch")
-        self.saveButton.alpha = 1
+        saveButton.alpha = 1
         UIView.animate(withDuration: 3, animations: {
             self.saveButton.alpha = 1
         })

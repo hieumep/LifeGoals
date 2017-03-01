@@ -15,6 +15,7 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var addButton: UIBarButtonItem!     
     @IBOutlet weak var tableView: UITableView!
     
+    var indexPathArray = [IndexPath]()
     lazy var context : NSManagedObjectContext = {
         return CoreDataStackManager.SharedInstance().managedObjectContext
     }()
@@ -69,7 +70,8 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let goalItem = fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoalItemCell") as! GoalsTableViewCell
-        configureCell(cell: cell, goalItem: goalItem)
+        indexPathArray.append(indexPath)
+        configureCell(cell: cell, goalItem: goalItem)        
         return cell
     }
     
@@ -94,11 +96,15 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
                 cell.progessView.setProgress(1, animated: true)
         }
         cell.doneLabel.addTarget(self, action: #selector(self.setDoneSegue(_sender:)), for: .touchUpInside)
+        cell.doneLabel.tag = indexPathArray.count - 1
     }
     
     func setDoneSegue(_sender : UIButton) {
-        let doneVC = self.storyboard?.instantiateViewController(withIdentifier: "doneViewController")
-        let _ = navigationController?.pushViewController(doneVC!, animated: true)
+        let doneVC = self.storyboard?.instantiateViewController(withIdentifier: "doneViewController") as! DoneViewController
+        let goal = fetchedResultsController.object(at: indexPathArray[_sender.tag])
+        doneVC.goalItem = goal
+        print(_sender.tag)
+        let _ = navigationController?.pushViewController(doneVC, animated: true)
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

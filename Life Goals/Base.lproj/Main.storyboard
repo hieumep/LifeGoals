@@ -623,21 +623,21 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMv-aW-xBC">
                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="32"/>
-                                                <state key="normal" image="ColorStar"/>
+                                                <state key="normal" image="noColorStar"/>
                                                 <connections>
                                                     <action selector="rating:" destination="CnI-pE-1jf" eventType="touchUpInside" id="Kvc-7A-jbk"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEC-ok-bZD">
                                                 <rect key="frame" x="61" y="0.0" width="56" height="32"/>
-                                                <state key="normal" image="ColorStar"/>
+                                                <state key="normal" image="noColorStar"/>
                                                 <connections>
                                                     <action selector="rating:" destination="CnI-pE-1jf" eventType="touchUpInside" id="tg4-0z-Wfc"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7D-sL-BjM">
                                                 <rect key="frame" x="122" y="0.0" width="56" height="32"/>
-                                                <state key="normal" image="ColorStar"/>
+                                                <state key="normal" image="noColorStar"/>
                                                 <connections>
                                                     <action selector="rating:" destination="CnI-pE-1jf" eventType="touchUpInside" id="mZK-YD-iaM"/>
                                                 </connections>
@@ -662,10 +662,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yeY-q4-YPw">
-                                        <rect key="frame" x="0.0" y="78" width="291.5" height="33"/>
+                                        <rect key="frame" x="0.0" y="78" width="295" height="33"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The stars give you :1 star = 3 points, 2 star = 4 point,3 star = 5 points, 4 star = 6 points, 5 star = 7 points" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBs-wX-rye">
-                                                <rect key="frame" x="0.0" y="0.0" width="291.5" height="33"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The stars give you :1 stars = 3 points, 2 stars = 4 point, 3 stars = 5 points, 4 stars = 6 points, 5 stars = 7 points" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBs-wX-rye">
+                                                <rect key="frame" x="0.0" y="0.0" width="295" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="ThW-Xh-qQ1"/>
                                                 </constraints>
@@ -683,7 +683,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uLT-ca-dQq">
                                         <rect key="frame" x="0.0" y="116" width="300" height="100"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What do you got it ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gTg-lR-yVi">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What do you got it after complete your goal ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gTg-lR-yVi">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -758,8 +758,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneButton" destination="l8z-K9-fab" id="pMs-kW-ala"/>
                         <outlet property="experienceTextView" destination="gTg-lR-yVi" id="BIM-qP-4wh"/>
                         <outlet property="goalLabel" destination="Gdu-Ic-0jP" id="KqH-Qg-r3D"/>
+                        <outlet property="photo" destination="KqI-9G-5QO" id="giR-UR-3IC"/>
+                        <outlet property="pointsLabel" destination="zBs-wX-rye" id="p5z-dT-p1f"/>
                         <outletCollection property="starButtons" destination="mMv-aW-xBC" collectionClass="NSMutableArray" id="lFU-5O-weu"/>
                         <outletCollection property="starButtons" destination="UEC-ok-bZD" collectionClass="NSMutableArray" id="ZdR-G6-lB2"/>
                         <outletCollection property="starButtons" destination="x7D-sL-BjM" collectionClass="NSMutableArray" id="nhT-HN-aFq"/>
@@ -774,7 +777,6 @@
     </scenes>
     <resources>
         <image name="Camera icon" width="30" height="22"/>
-        <image name="ColorStar" width="35" height="32"/>
         <image name="LibraryIcon" width="32" height="24"/>
         <image name="More" width="30" height="30"/>
         <image name="checked" width="30" height="30"/>

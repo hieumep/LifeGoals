@@ -32,8 +32,8 @@ class GoalObject: NSManagedObject {
     @NSManaged var photo : String?  
     @NSManaged var done : Bool
     @NSManaged var doneDate : NSDate?
-    @NSManaged var points : Int64
-    @NSManaged var stars : Int64
+    @NSManaged var points : Int
+    @NSManaged var stars : Int
     @NSManaged var createdDate : NSDate
     @NSManaged var experience : String?
     @NSManaged var notes : [Note]?
