@@ -45,11 +45,18 @@ class DoneViewController: UIViewController {
         if let item = goalItem {
             goalLabel.text = item.goal
             photo.image = ImageCache.sharedInstance().getImageWithIdentifier(item.photo)
-            print(item.stars)
             rating(star: Int(item.stars))
             if item.points > 0 {
                 pointsLabel.text = "Points : \(item.points)"
+                pointsLabel.textAlignment = .center
             }
+            if item.done {
+                for i in 0 ... 4 {
+                    starButtons[i].isEnabled = false
+                }
+                doneButton.setTitle("Hold to Edit", for: .normal)
+            }
+            experienceTextView.text = item.experience
         }
         
         //set tap to hide keyboards
@@ -62,6 +69,21 @@ class DoneViewController: UIViewController {
         longPress.minimumPressDuration = 3
         longPress.delegate = self
         doneButton.addGestureRecognizer(longPress)
+        
+        //set tap gesture into image View
+        let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(self.tapImage(_:)))
+        tapGestureImage.numberOfTapsRequired = 1
+        photo.isUserInteractionEnabled = true
+        photo.addGestureRecognizer(tapGestureImage)
+        
+    }
+    
+    func tapImage(_ gestureRecognizer : UIGestureRecognizer) {
+        if let image = self.photo.image {
+            let photoVC = storyboard?.instantiateViewController(withIdentifier: "photoViewController") as! PhotoViewController
+            photoVC.image = image
+            navigationController?.pushViewController(photoVC, animated: true)
+        }
     }
     
     func saveContext() {
@@ -99,6 +121,7 @@ class DoneViewController: UIViewController {
         goalItem?.stars = Int16(numberOfStars)
         print(numberOfStars)
         goalItem?.points = pointDictonary[numberOfStars+1]!
+        goalItem?.done = true
         saveContext()
     }
 

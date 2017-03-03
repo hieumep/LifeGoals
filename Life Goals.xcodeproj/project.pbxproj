@@ -25,6 +25,7 @@
 		5123EE451E5FE24A00087C2D /* GoalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE441E5FE24A00087C2D /* GoalObject.swift */; };
 		5123EE471E5FEC2800087C2D /* NoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE461E5FEC2800087C2D /* NoteObject.swift */; };
 		512FD77E1E669FE9005A22E5 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD77D1E669FE9005A22E5 /* DoneViewController.swift */; };
+		512FD7811E69E9D6005A22E5 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7801E69E9D6005A22E5 /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		5123EE441E5FE24A00087C2D /* GoalObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalObject.swift; sourceTree = "<group>"; };
 		5123EE461E5FEC2800087C2D /* NoteObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteObject.swift; sourceTree = "<group>"; };
 		512FD77D1E669FE9005A22E5 /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
+		512FD7801E69E9D6005A22E5 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		5123EE211E5BDF5B00087C2D /* Life Goals */ = {
 			isa = PBXGroup;
 			children = (
+				512FD77F1E69E99A005A22E5 /* ViewControllers */,
 				5123EE4A1E5FF1BE00087C2D /* Model Class */,
 				5123EE481E5FF19800087C2D /* Support */,
 				5123EE361E5C040100087C2D /* Extend Class */,
@@ -89,10 +92,7 @@
 				5123EE291E5BDF5B00087C2D /* Assets.xcassets */,
 				5123EE2B1E5BDF5B00087C2D /* LaunchScreen.storyboard */,
 				5123EE2E1E5BDF5B00087C2D /* Info.plist */,
-				5123EE341E5BE79E00087C2D /* GoalViewController.swift */,
-				5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */,
 				5123EE411E5E132100087C2D /* DataModel.xcdatamodeld */,
-				512FD77D1E669FE9005A22E5 /* DoneViewController.swift */,
 			);
 			path = "Life Goals";
 			sourceTree = "<group>";
@@ -125,6 +125,17 @@
 				5123EE441E5FE24A00087C2D /* GoalObject.swift */,
 			);
 			name = "Model Class";
+			sourceTree = "<group>";
+		};
+		512FD77F1E69E99A005A22E5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5123EE341E5BE79E00087C2D /* GoalViewController.swift */,
+				5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */,
+				512FD77D1E669FE9005A22E5 /* DoneViewController.swift */,
+				512FD7801E69E9D6005A22E5 /* PhotoViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 				511198DB1E6166FE0080CF26 /* ExtendDate.swift in Sources */,
 				511198DF1E65F5460080CF26 /* GoalsTableViewCell.swift in Sources */,
 				5123EE3E1E5E04DC00087C2D /* LongLifeGoalsViewController.swift in Sources */,
+				512FD7811E69E9D6005A22E5 /* PhotoViewController.swift in Sources */,
 				5123EE401E5E0FF200087C2D /* CoreDataStackManager.swift in Sources */,
 				511198DD1E64BC6D0080CF26 /* extentionClass.swift in Sources */,
 			);

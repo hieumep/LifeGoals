@@ -26,6 +26,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     var flagDate = true
     var image : UIImage? = nil
     var expiredDate = Date()
+    var goalItem : Goal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +85,33 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         
         // delegate UItext
         goalDescriptionText.delegate = self
+        
+        //add tap gesture recoginizer into imageView
+        let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(self.tapImage(_:)))
+        tapGestureImage.numberOfTapsRequired = 1
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGestureImage)
+        
+        //if there has item to edit
+        if let goalItem = goalItem {
+            goalText.text = goalItem.goal
+            goalDescriptionText.text = goalItem.goalDescription
+            shortTem.isOn = goalItem.shortTerm
+            expiredDate = goalItem.expiredDate as! Date
+            expiredDateButton.setTitle(expiredDate.formatDateToString(), for: .normal)
+            datePicker.date = expiredDate
+            image = ImageCache.sharedInstance().getImageWithIdentifier(goalItem.photo)
+            imageView.image = image
+            saveButton.setTitle("Hold to edit", for: .normal)
+        }
+    }
+    
+    func tapImage(_ gestureRecognizer : UIGestureRecognizer) {
+        if let image = self.image {
+            let photoVC = storyboard?.instantiateViewController(withIdentifier: "photoViewController") as! PhotoViewController
+            photoVC.image = image
+            navigationController?.pushViewController(photoVC, animated: true)
+        }
     }
     
     // when pick date
@@ -151,16 +179,24 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     
     //save or edit data into database
     func saveOrEditData() {
-        var item = [String:AnyObject]()
-        if goalText.text != "" {
-            item[GoalObject.keys.goal] = goalText.text as AnyObject
-            item[GoalObject.keys.goalDescription] = goalDescriptionText.text as AnyObject
-            item[GoalObject.keys.shortTerm] = shortTem.isOn as AnyObject
-            item[GoalObject.keys.expiredDate] = expiredDate as AnyObject
-            item[GoalObject.keys.createdDate] = Date() as AnyObject
-            item[GoalObject.keys.photo_path] = ImageCache.sharedInstance().setImageRetunPath(image: self.image, date: Date()) as AnyObject
-            let _ = GoalObject(goalItem: item, context: context)           
-            saveContext()
+        if let goalItem = goalItem {
+            goalItem.goal = goalText.text
+            goalItem.goalDescription = goalDescriptionText.text
+            goalItem.shortTerm = shortTem.isOn
+            goalItem.expiredDate = expiredDate as NSDate
+            goalItem.photo = ImageCache.sharedInstance().setImageRetunPath(image: self.image, date: Date())
+        } else {
+            var item = [String:AnyObject]()
+            if goalText.text != "" {
+                item[GoalObject.keys.goal] = goalText.text as AnyObject
+                item[GoalObject.keys.goalDescription] = goalDescriptionText.text as AnyObject
+                item[GoalObject.keys.shortTerm] = shortTem.isOn as AnyObject
+                item[GoalObject.keys.expiredDate] = expiredDate as AnyObject
+                item[GoalObject.keys.createdDate] = Date() as AnyObject
+                item[GoalObject.keys.photo_path] = ImageCache.sharedInstance().setImageRetunPath(image: self.image, date: Date()) as AnyObject
+                let _ = GoalObject(goalItem: item, context: context)
+            }
         }
+        saveContext()    
     }
 }

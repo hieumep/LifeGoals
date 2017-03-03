@@ -15,17 +15,18 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var addButton: UIBarButtonItem!     
     @IBOutlet weak var tableView: UITableView!
     
+    let fetchRequest : NSFetchRequest<Goal> = Goal.fetchRequest()
     var indexPathArray = [IndexPath]()
+   // var indexPathDic = [Int:IndexPath]()
+   // var tagnumber = 1
     lazy var context : NSManagedObjectContext = {
         return CoreDataStackManager.SharedInstance().managedObjectContext
     }()
-   
-  //  let fetchRequest : NSFetchRequest<GoalObject> = GoalObject.fetchRequest() as! NSFetchRequest<GoalObject>
+  
     
     lazy var fetchedResultsController : NSFetchedResultsController<Goal> = {
-        let fetchRequest : NSFetchRequest<Goal> = Goal.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: GoalObject.keys.createdDate, ascending: false)]
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
+        self.fetchRequest.sortDescriptors = [NSSortDescriptor(key: GoalObject.keys.createdDate, ascending: false)]
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultsController
     }()
 
@@ -36,19 +37,17 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
        // addButton.setBackgroundImage(UIImage.init(named: "AddIcon"), for: .normal, barMetrics: .default)
        // addButton.frame = CGRectMake(0, 0, 30.0, 30.0)
         // Do any additional setup after loading the view.
-      //  fetchData(segmentedControl.selectedSegmentIndex)
         fetchedResultsController.delegate = self
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            print(error)
-        }
-       // tableView.reloadData()
+        indexPathArray.removeAll()
+        fetchData(segmentedControl.selectedSegmentIndex)
+        
+        //tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       // tableView.reloadData()
+        
+        //tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +56,7 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func segmentedChange(_ sender: UISegmentedControl) {
+        indexPathArray.removeAll()
         fetchData(sender.selectedSegmentIndex)
     }
     
@@ -64,14 +64,13 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sessionInfo = fetchedResultsController.sections![section]
         return sessionInfo.numberOfObjects
-       // return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let goalItem = fetchedResultsController.object(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoalItemCell") as! GoalsTableViewCell
         indexPathArray.append(indexPath)
-        configureCell(cell: cell, goalItem: goalItem)        
+        configureCell(cell: cell, goalItem: goalItem)
         return cell
     }
     
@@ -97,13 +96,27 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
         }
         cell.doneLabel.addTarget(self, action: #selector(self.setDoneSegue(_sender:)), for: .touchUpInside)
         cell.doneLabel.tag = indexPathArray.count - 1
+        
+        if goalItem.done {
+            cell.doneLabel.setImage(UIImage.init(named: "checked"), for: .normal)
+        } else {
+            cell.doneLabel.setImage(UIImage.init(named: "NotCheck"), for: .normal)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = fetchedResultsController.object(at: indexPath)
+        let goalViewController = storyboard?.instantiateViewController(withIdentifier: "goalViewController") as! GoalViewController
+        goalViewController.goalItem = item
+        _ = navigationController?.pushViewController(goalViewController, animated: true)
+        
     }
     
     func setDoneSegue(_sender : UIButton) {
         let doneVC = self.storyboard?.instantiateViewController(withIdentifier: "doneViewController") as! DoneViewController
         let goal = fetchedResultsController.object(at: indexPathArray[_sender.tag])
         doneVC.goalItem = goal
-        print(_sender.tag)
+      //  print("that is tag : \(_sender.tag)")
         let _ = navigationController?.pushViewController(doneVC, animated: true)
     }
     
@@ -120,9 +133,31 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
         case .insert:
             if let newPath = newIndexPath {
                 tableView.insertRows(at: [newPath], with: .fade)
+                indexPathArray.append(newPath)
+                print("Number of array :\(indexPathArray.count)")
+                break
             }
-        default:
-            return
+        case .delete :
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .left)
+                print("only delete")
+                tableView.reloadData()
+                break
+            }
+        case .update:
+            tableView.reloadData()
+            break;
+        case .move:
+            if let indexPath = indexPath {
+            tableView.deleteRows(at: [indexPath], with: .fade)
+                
+            }
+            
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .left)
+            }
+            print("do move")
+            break;
         }
     }
     
@@ -131,16 +166,16 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func fetchData(_ segmented : Int) {
-//        if segmented == 0 {
-//            fetchRequest.predicate = NSPredicate(format: "done == false")
-//        } else {
-//            fetchRequest.predicate = NSPredicate(format: "done == true")
-//        }
-//        do {
-//            try fetchedResultsController.performFetch()
-//        } catch {
-//            print(error)
-//        }
-//        tableView.reloadData()
+        if segmented == 0 {
+            fetchRequest.predicate = NSPredicate(format: "done == false")
+        } else {
+            fetchRequest.predicate = NSPredicate(format: "done == true")
+        }
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print(error)
+        }
+        tableView.reloadData()
     }
 }
