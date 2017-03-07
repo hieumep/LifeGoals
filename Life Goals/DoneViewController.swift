@@ -82,7 +82,7 @@ class DoneViewController: UIViewController {
         if let image = self.photo.image {
             let photoVC = storyboard?.instantiateViewController(withIdentifier: "photoViewController") as! PhotoViewController
             photoVC.image = image
-            navigationController?.pushViewController(photoVC, animated: true)
+            self.present(photoVC, animated: true, completion: nil)
         }
     }
     

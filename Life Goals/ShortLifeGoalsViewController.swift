@@ -33,15 +33,10 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
    
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   addButton.title = ""
-       // addButton.setBackgroundImage(UIImage.init(named: "AddIcon"), for: .normal, barMetrics: .default)
-       // addButton.frame = CGRectMake(0, 0, 30.0, 30.0)
         // Do any additional setup after loading the view.
         fetchedResultsController.delegate = self
         indexPathArray.removeAll()
         fetchData(segmentedControl.selectedSegmentIndex)
-        
-        //tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,7 +71,11 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
     
     func configureCell(cell : GoalsTableViewCell, goalItem : Goal){
         cell.goalLabel.text = goalItem.goal
-        cell.photo.image = ImageCache.sharedInstance().getImageWithIdentifier(goalItem.photo)
+        if let photo = goalItem.photo {
+            cell.photo.image = ImageCache.sharedInstance().getImageWithIdentifier(photo)
+        } else {
+            cell.photo.image = UIImage.init(named: "LogoIcon50")
+        }
         let userCalendar = NSCalendar.current
         let createdDate = goalItem.createdDate as! Date
         let expriedDate = goalItem.expiredDate as! Date
@@ -102,6 +101,9 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
         } else {
             cell.doneLabel.setImage(UIImage.init(named: "NotCheck"), for: .normal)
         }
+        
+        cell.moreButton.addTarget(self, action: #selector(self.setAddNoteSegue(_:)), for: .touchUpInside)
+        cell.moreButton.tag = indexPathArray.count - 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -112,11 +114,20 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    //segue to add Notes View Controller 
+    func setAddNoteSegue(_ sender : UIButton) {
+        let item = fetchedResultsController.object(at: indexPathArray[sender.tag])
+        let notesVC = storyboard?.instantiateViewController(withIdentifier: "notesViewController") as! NotesViewController
+        notesVC.goalItem = item
+        _ = self.present(notesVC, animated: true, completion: nil)
+    }
+    
+    //segue to done View Controller
     func setDoneSegue(_sender : UIButton) {
         let doneVC = self.storyboard?.instantiateViewController(withIdentifier: "doneViewController") as! DoneViewController
         let goal = fetchedResultsController.object(at: indexPathArray[_sender.tag])
         doneVC.goalItem = goal
-      //  print("that is tag : \(_sender.tag)")
+       // _ = self.present(doneVC, animated: true, completion: nil)
         let _ = navigationController?.pushViewController(doneVC, animated: true)
     }
     

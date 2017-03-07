@@ -26,6 +26,9 @@
 		5123EE471E5FEC2800087C2D /* NoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5123EE461E5FEC2800087C2D /* NoteObject.swift */; };
 		512FD77E1E669FE9005A22E5 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD77D1E669FE9005A22E5 /* DoneViewController.swift */; };
 		512FD7811E69E9D6005A22E5 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7801E69E9D6005A22E5 /* PhotoViewController.swift */; };
+		512FD7831E6DE34C005A22E5 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7821E6DE34C005A22E5 /* NotesTableViewCell.swift */; };
+		512FD7851E6DE5E0005A22E5 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */; };
+		512FD7871E6E97B6005A22E5 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7861E6E97B6005A22E5 /* NoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		5123EE461E5FEC2800087C2D /* NoteObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteObject.swift; sourceTree = "<group>"; };
 		512FD77D1E669FE9005A22E5 /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		512FD7801E69E9D6005A22E5 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		512FD7821E6DE34C005A22E5 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		512FD7861E6E97B6005A22E5 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 				511198DA1E6166FE0080CF26 /* ExtendDate.swift */,
 				511198DC1E64BC6D0080CF26 /* extentionClass.swift */,
 				511198DE1E65F5460080CF26 /* GoalsTableViewCell.swift */,
+				512FD7821E6DE34C005A22E5 /* NotesTableViewCell.swift */,
 			);
 			name = "Extend Class";
 			sourceTree = "<group>";
@@ -134,6 +141,8 @@
 				5123EE3B1E5D700200087C2D /* ShortLifeGoalsViewController.swift */,
 				512FD77D1E669FE9005A22E5 /* DoneViewController.swift */,
 				512FD7801E69E9D6005A22E5 /* PhotoViewController.swift */,
+				512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */,
+				512FD7861E6E97B6005A22E5 /* NoteViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -211,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512FD7831E6DE34C005A22E5 /* NotesTableViewCell.swift in Sources */,
 				511198D71E6159D50080CF26 /* ImageCache.swift in Sources */,
 				512FD77E1E669FE9005A22E5 /* DoneViewController.swift in Sources */,
 				5123EE231E5BDF5B00087C2D /* AppDelegate.swift in Sources */,
@@ -224,7 +234,9 @@
 				511198DB1E6166FE0080CF26 /* ExtendDate.swift in Sources */,
 				511198DF1E65F5460080CF26 /* GoalsTableViewCell.swift in Sources */,
 				5123EE3E1E5E04DC00087C2D /* LongLifeGoalsViewController.swift in Sources */,
+				512FD7851E6DE5E0005A22E5 /* NotesViewController.swift in Sources */,
 				512FD7811E69E9D6005A22E5 /* PhotoViewController.swift in Sources */,
+				512FD7871E6E97B6005A22E5 /* NoteViewController.swift in Sources */,
 				5123EE401E5E0FF200087C2D /* CoreDataStackManager.swift in Sources */,
 				511198DD1E64BC6D0080CF26 /* extentionClass.swift in Sources */,
 			);

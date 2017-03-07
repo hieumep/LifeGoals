@@ -102,7 +102,12 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             datePicker.date = expiredDate
             image = ImageCache.sharedInstance().getImageWithIdentifier(goalItem.photo)
             imageView.image = image
-            saveButton.setTitle("Hold to edit", for: .normal)
+            if goalItem.done {
+                saveButton.setTitle("This Goal is done or expired", for: .normal)
+                saveButton.isEnabled = false
+            } else {
+                saveButton.setTitle("Hold to edit", for: .normal)
+            }
         }
     }
     
@@ -110,7 +115,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         if let image = self.image {
             let photoVC = storyboard?.instantiateViewController(withIdentifier: "photoViewController") as! PhotoViewController
             photoVC.image = image
-            navigationController?.pushViewController(photoVC, animated: true)
+            self.present(photoVC, animated: true, completion: nil)
         }
     }
     
@@ -125,6 +130,10 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         datePicker.isHidden = flagDate
     }
   
+    @IBAction func deleteImage(_ sender: Any) {
+        image = nil
+        imageView.image = image
+    }
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -195,6 +204,11 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                 item[GoalObject.keys.createdDate] = Date() as AnyObject
                 item[GoalObject.keys.photo_path] = ImageCache.sharedInstance().setImageRetunPath(image: self.image, date: Date()) as AnyObject
                 let _ = GoalObject(goalItem: item, context: context)
+            }else {
+                let alertVC = UIAlertController(title: "Alert", message: "Goal can't not empty", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Got it", style: .cancel, handler: nil)
+                alertVC.addAction(alertAction)
+                present(alertVC, animated: true, completion: nil)
             }
         }
         saveContext()    

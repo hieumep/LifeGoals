@@ -70,8 +70,7 @@ class ImageCache {
         let calendar = Calendar.current
         let compoments = (calendar as NSCalendar).components([.year,.month,.day,.hour,.minute,.second], from: date)
         let nameFile = "\(compoments.year!)\(compoments.month!)\(compoments.day!)\(compoments.hour!)\(compoments.minute!)\(compoments.second!)"
-        let identifier = "\(nameFile).jpg"
-        print(identifier)
+        let identifier = "\(nameFile).jpg"       
         storeImage(image, withIdentifier: identifier)
         return identifier
 

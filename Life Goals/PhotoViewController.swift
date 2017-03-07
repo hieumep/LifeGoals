@@ -25,7 +25,7 @@ class PhotoViewController: UIViewController {
 
     @IBOutlet weak var cancel: UIBarButtonItem!
     @IBAction func backAction(_ sender: Any) {
-        _ = navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }   
     
     /*
