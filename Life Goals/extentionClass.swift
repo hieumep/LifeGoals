@@ -74,3 +74,17 @@ extension DoneViewController : UITextViewDelegate, UIGestureRecognizerDelegate {
         return true
     }
 }
+
+extension NoteViewController : UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Your note description..." {
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Your note description..."
+        }
+    }
+}

@@ -178,9 +178,9 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
     
     func fetchData(_ segmented : Int) {
         if segmented == 0 {
-            fetchRequest.predicate = NSPredicate(format: "done == false")
+            fetchRequest.predicate = NSPredicate(format: "(shortTerm = true) AND (done == false)")
         } else {
-            fetchRequest.predicate = NSPredicate(format: "done == true")
+            fetchRequest.predicate = NSPredicate(format: "(shortTerm = true) AND (done == true)")
         }
         do {
             try fetchedResultsController.performFetch()

@@ -379,7 +379,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y8g-6J-nlc" id="Hrh-Wx-Pxg">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZIx-jf-2PA">
@@ -490,7 +490,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Life Goals" id="DSK-Ro-PSG">
+                    <navigationItem key="navigationItem" title="Short term Goals" id="DSK-Ro-PSG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YTa-YY-F0M">
                             <connections>
                                 <segue destination="eg5-HF-0Be" kind="show" id="6Cz-BG-J3g"/>
@@ -535,7 +535,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IUz-n2-90L">
                                             <connections>
-                                                <segue destination="vnt-59-vDZ" kind="show" id="VYI-v0-kLI"/>
+                                                <segue destination="vnt-59-vDZ" kind="show" identifier="addNoteSegue" id="VYI-v0-kLI"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -636,7 +636,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h1c-MQ-vPz" id="nd3-ej-doT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earning 10000 within 3 months with the new house" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4x-mC-S9W">
@@ -720,6 +720,7 @@
                         <outlet property="goalDescriptionLabel" destination="vq3-b7-IfU" id="bUf-xJ-To3"/>
                         <outlet property="goalLabel" destination="RDO-su-f3S" id="14w-ij-iah"/>
                         <outlet property="photo" destination="qyn-gq-Mef" id="duA-Zf-OF1"/>
+                        <outlet property="tableView" destination="G4Y-Ss-yn2" id="Nnd-G8-yhD"/>
                         <outlet property="termLabel" destination="6Dz-Bt-Eb7" id="7gF-g8-Sta"/>
                     </connections>
                 </viewController>
@@ -890,7 +891,7 @@
                                     <constraint firstAttribute="height" constant="44" id="rQW-Ut-KFq"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="6dz-bS-nbL">
+                                    <navigationItem title="Note" id="6dz-bS-nbL">
                                         <barButtonItem key="leftBarButtonItem" title="&lt;" id="iq6-cT-9dG">
                                             <connections>
                                                 <action selector="backAction:" destination="vnt-59-vDZ" id="avD-jw-s5A"/>
@@ -925,7 +926,7 @@
         <!--Long Life Goals-->
         <scene sceneID="z7Y-Qg-DGc">
             <objects>
-                <viewController title="Long Life Goals" providesPresentationContextTransitionStyle="YES" id="KEa-2q-010" customClass="ShortLifeGoalsViewController" customModule="Life_Goals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Long Life Goals" providesPresentationContextTransitionStyle="YES" id="KEa-2q-010" customClass="LongLifeGoalsViewController" customModule="Life_Goals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Atp-I6-gMR"/>
                         <viewControllerLayoutGuide type="bottom" id="fcS-c7-dLm"/>
@@ -944,6 +945,9 @@
                                     <segment title="Done"/>
                                 </segments>
                                 <color key="tintColor" red="0.95786434409999999" green="0.41091305020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentedChange:" destination="KEa-2q-010" eventType="valueChanged" id="Ozb-9S-rwg"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-JW-LDy">
                                 <rect key="frame" x="0.0" y="162" width="320" height="406"/>
@@ -953,7 +957,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sF9-fg-wOr" id="Bhd-hM-jAD">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJ0-Ep-vNl">
@@ -1013,8 +1017,20 @@
                                                 <constraint firstAttribute="trailing" secondItem="5qj-Df-FVn" secondAttribute="trailing" constant="5" id="uYU-7u-5VP"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="doneLabel" destination="5qj-Df-FVn" id="zpz-UI-uMI"/>
+                                            <outlet property="goalLabel" destination="fY3-B9-8Pa" id="15a-uO-NJQ"/>
+                                            <outlet property="moreButton" destination="iCh-I1-SD5" id="iam-gX-5eE"/>
+                                            <outlet property="photo" destination="CJ0-Ep-vNl" id="dG1-VJ-fg3"/>
+                                            <outlet property="progessLabel" destination="7tt-5A-sEF" id="gR4-t2-haf"/>
+                                            <outlet property="progessView" destination="MYG-lW-rOj" id="Wrz-Qj-K55"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KEa-2q-010" id="qID-iL-zB9"/>
+                                    <outlet property="delegate" destination="KEa-2q-010" id="xFR-Ov-b9A"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;I Love u so much than i think because you are are my life. I can do every thing for you&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUB-1C-6kH">
                                 <rect key="frame" x="10" y="100" width="300" height="40"/>
@@ -1052,11 +1068,21 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Life Goals" id="yjG-PO-VIj"/>
+                    <navigationItem key="navigationItem" title="Long term Goals" id="yjG-PO-VIj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fHI-Jg-hvB">
+                            <connections>
+                                <segue destination="eg5-HF-0Be" kind="show" id="JtA-N8-rxE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="357-Rr-lk8" id="FT3-sP-HQO"/>
+                        <outlet property="tableView" destination="CgD-JW-LDy" id="xMS-Ga-V03"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTB-Aa-FT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="386" y="808"/>
+            <point key="canvasLocation" x="306" y="851"/>
         </scene>
         <!--Done-->
         <scene sceneID="1aC-0r-60B">
@@ -1250,4 +1276,7 @@
         <image name="noColorStar" width="35" height="32"/>
         <image name="saveBackground" width="367" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6Cz-BG-J3g"/>
+    </inferredMetricsTieBreakers>
 </document>

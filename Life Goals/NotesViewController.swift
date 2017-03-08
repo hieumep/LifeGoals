@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var termLabel: UILabel!
     @IBOutlet weak var expiredLabel: UILabel!
@@ -17,13 +17,16 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalDescriptionLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var goalItem : Goal?
     var expiredDate : Date?
+    var indexPathArray = [IndexPath]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        indexPathArray.removeAll()
         //fetch data
         do{
             try fetchedResultController.performFetch()
@@ -33,6 +36,10 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,6 +67,15 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         goalLabel.text = goalItem.goal
         goalDescriptionLabel.text = goalItem.goalDescription
+            
+        fetchedResultController.delegate = self
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addNoteSegue" {
+            let noteVC = segue.destination as! NoteViewController
+            noteVC.goalItem = self.goalItem
         }
     }
     
@@ -74,6 +90,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteTableViewCell") as! NotesTableViewCell
+        indexPathArray.append(indexPath)
         configureCell(cell: cell, indexPath: indexPath)
         return cell
     }
@@ -92,12 +109,24 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else {
             cell.doneButton.setImage(UIImage.init(named: "NotCheck"), for: .normal)
         }
+        cell.doneButton.tag = indexPathArray.count - 1
+        cell.doneButton.addTarget(self, action: #selector(self.setDone(_:)), for: .touchUpInside)
+    }
+    
+    // set done or not
+    func setDone(_ sender: UIButton) {
+        let indexPath = indexPathArray[sender.tag]
+        let item = fetchedResultController.object(at: indexPath)
+        item.done = !item.done
+        saveContext()
     }
     
     lazy var fetchedResultController : NSFetchedResultsController<Note> = {
         let fetchRequest : NSFetchRequest<Note> = Note.fetchRequest() as NSFetchRequest<Note>
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: NoteObject.keys.done, ascending: true)]
+        fetchRequest.predicate = NSPredicate(format: "goals == %@", self.goalItem!)
         let fetchedResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
+        
         return fetchedResultController
     }()
     
@@ -105,6 +134,12 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
        return CoreDataStackManager.SharedInstance().managedObjectContext
     }()
     
+    func saveContext(){
+        CoreDataStackManager.SharedInstance().saveContext()
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        tableView.reloadData()
+    }
     /*
     // MARK: - Navigation
 

@@ -93,7 +93,6 @@
 				5123EE481E5FF19800087C2D /* Support */,
 				5123EE361E5C040100087C2D /* Extend Class */,
 				5123EE221E5BDF5B00087C2D /* AppDelegate.swift */,
-				5123EE3D1E5E04DC00087C2D /* LongLifeGoalsViewController.swift */,
 				5123EE261E5BDF5B00087C2D /* Main.storyboard */,
 				5123EE291E5BDF5B00087C2D /* Assets.xcassets */,
 				5123EE2B1E5BDF5B00087C2D /* LaunchScreen.storyboard */,
@@ -143,6 +142,7 @@
 				512FD7801E69E9D6005A22E5 /* PhotoViewController.swift */,
 				512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */,
 				512FD7861E6E97B6005A22E5 /* NoteViewController.swift */,
+				5123EE3D1E5E04DC00087C2D /* LongLifeGoalsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

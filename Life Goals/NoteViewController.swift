@@ -37,6 +37,7 @@ class NoteViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         noteDescription.layer.cornerRadius = 15
         noteDescription.layer.borderWidth = 1
         noteDescription.layer.borderColor = UIColor.lightGray.cgColor
+        noteDescription.delegate = self
         imageView.layer.borderWidth = 1
         
         // check camera avaible
@@ -76,7 +77,11 @@ class NoteViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func saveData(){
         var item = [String:AnyObject]()
         item[NoteObject.keys.note] = note.text as AnyObject
-        item[NoteObject.keys.noteDescription] = noteDescription.text as AnyObject
+        if noteDescription.text != "Your note description..." {
+            item[NoteObject.keys.noteDescription] = noteDescription.text as AnyObject
+        } else {
+            item[NoteObject.keys.noteDescription] = "" as AnyObject?
+        }
         item[NoteObject.keys.photo_path] = ImageCache.sharedInstance().setImageRetunPath(image: image, date: Date()) as AnyObject
         item[NoteObject.keys.goals] = goalItem
         _ = NoteObject(noteItem: item, context: context)
