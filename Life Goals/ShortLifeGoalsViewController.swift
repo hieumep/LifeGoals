@@ -98,6 +98,9 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
         
         if goalItem.done {
             cell.doneLabel.setImage(UIImage.init(named: "checked"), for: .normal)
+            if goalItem.doneDate == nil {
+                cell.doneLabel.setImage(UIImage.init(named: "ExpiredDone"), for: .normal)
+            }
         } else {
             cell.doneLabel.setImage(UIImage.init(named: "NotCheck"), for: .normal)
         }

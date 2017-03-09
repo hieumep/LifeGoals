@@ -25,8 +25,9 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     var tapGesture : UITapGestureRecognizer? = nil
     var flagDate = true
     var image : UIImage? = nil
-    var expiredDate = Date()
+    var expiredDate = Date().getTomorrow()
     var goalItem : Goal?
+    var shortTerm = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,8 +78,11 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         tapGesture?.numberOfTapsRequired = 1
         addKeyboardDismissRecoginze()
         
+        //set short term or long term 
+        shortTem.isOn = shortTerm
+        
         //set datePicker
-        datePicker.minimumDate = Date()
+        datePicker.minimumDate = expiredDate
         
      //   let todayString = Date().formatDateToString()
         expiredDateButton.setTitle(expiredDate.formatDateToString(), for: .normal)
@@ -109,6 +113,8 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
                 saveButton.setTitle("Hold to edit", for: .normal)
             }
         }
+        
+        
     }
     
     func tapImage(_ gestureRecognizer : UIGestureRecognizer) {

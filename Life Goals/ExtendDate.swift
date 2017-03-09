@@ -16,5 +16,10 @@ extension Date {
         let dateString = dateFormater.string(from: self)
         return dateString
     }
+    
+    func getTomorrow() -> Date {
+        let tomorrow = NSCalendar.current.date(byAdding: .day, value: 1, to: self)
+        return tomorrow!
+    }
 
 }

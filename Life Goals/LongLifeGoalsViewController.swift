@@ -96,6 +96,9 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
         
         if goalItem.done {
             cell.doneLabel.setImage(UIImage.init(named: "checked"), for: .normal)
+            if goalItem.doneDate == nil {
+                cell.doneLabel.setImage(UIImage.init(named: "ExpiredDone"), for: .normal)
+            }
         } else {
             cell.doneLabel.setImage(UIImage.init(named: "NotCheck"), for: .normal)
         }
@@ -135,6 +138,13 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+    }
+    //prepare segue to set this long term goal
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "longTermGoalSegue" {
+            let goalVC = segue.destination as! GoalViewController
+            goalVC.shortTerm = false
+        }
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {

@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var pointDictonary : [Int:Int16] = [0:0,1:3,2:4,3:5,4:6,5:7]
+    lazy var context : NSManagedObjectContext = {
+       return CoreDataStackManager.SharedInstance().managedObjectContext
+    }()
+    
+    func saveContext(){
+        CoreDataStackManager.SharedInstance().saveContext()
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UINavigationBar.appearance().setBackgroundImage(UIImage.init(named: "NavigationBG"), for: .default)
@@ -39,12 +47,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        checkExpired()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func checkExpired() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Goal")
+        fetchRequest.predicate = NSPredicate(format: "done == false")
+        do {
+            let goalItems = try context.fetch(fetchRequest) as! [Goal]
+            for item in goalItems {
+                let expiredDate = item.expiredDate as! Date
+                let curreDate = Date()
+                if curreDate.compare(expiredDate) != .orderedAscending {
+                    item.done = true
+                    item.stars = 1
+                    item.points = -5
+                }
+            }
+        }catch {
+                print(error)
+                abort()
+        }
+    }
 }
 

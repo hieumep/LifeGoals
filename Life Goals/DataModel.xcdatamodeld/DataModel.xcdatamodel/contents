@@ -21,8 +21,13 @@
         <attribute name="photo" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="notes" inverseEntity="Goal" syncable="YES"/>
     </entity>
+    <entity name="Quote" representedClassName="Quote" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quote" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Goal" positionX="-63" positionY="-18" width="128" height="225"/>
         <element name="Note" positionX="-54" positionY="72" width="128" height="120"/>
+        <element name="Quote" positionX="-54" positionY="81" width="128" height="75"/>
     </elements>
 </model>

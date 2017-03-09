@@ -29,6 +29,7 @@
 		512FD7831E6DE34C005A22E5 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7821E6DE34C005A22E5 /* NotesTableViewCell.swift */; };
 		512FD7851E6DE5E0005A22E5 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */; };
 		512FD7871E6E97B6005A22E5 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7861E6E97B6005A22E5 /* NoteViewController.swift */; };
+		517B47B41E70F49B007E9159 /* QuoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47B31E70F49B007E9159 /* QuoteObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		512FD7821E6DE34C005A22E5 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		512FD7861E6E97B6005A22E5 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		517B47B31E70F49B007E9159 /* QuoteObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			children = (
 				5123EE461E5FEC2800087C2D /* NoteObject.swift */,
 				5123EE441E5FE24A00087C2D /* GoalObject.swift */,
+				517B47B31E70F49B007E9159 /* QuoteObject.swift */,
 			);
 			name = "Model Class";
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				512FD7831E6DE34C005A22E5 /* NotesTableViewCell.swift in Sources */,
+				517B47B41E70F49B007E9159 /* QuoteObject.swift in Sources */,
 				511198D71E6159D50080CF26 /* ImageCache.swift in Sources */,
 				512FD77E1E669FE9005A22E5 /* DoneViewController.swift in Sources */,
 				5123EE231E5BDF5B00087C2D /* AppDelegate.swift in Sources */,

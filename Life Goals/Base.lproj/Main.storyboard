@@ -505,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztv-za-tno" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="666" y="-16"/>
+            <point key="canvasLocation" x="613" y="-30"/>
         </scene>
         <!--Notes-->
         <scene sceneID="ENz-ea-QpQ">
@@ -1071,7 +1071,7 @@
                     <navigationItem key="navigationItem" title="Long term Goals" id="yjG-PO-VIj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fHI-Jg-hvB">
                             <connections>
-                                <segue destination="eg5-HF-0Be" kind="show" id="JtA-N8-rxE"/>
+                                <segue destination="eg5-HF-0Be" kind="show" identifier="longTermGoalSegue" id="JtA-N8-rxE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1277,6 +1277,6 @@
         <image name="saveBackground" width="367" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Cz-BG-J3g"/>
+        <segue reference="JtA-N8-rxE"/>
     </inferredMetricsTieBreakers>
 </document>
