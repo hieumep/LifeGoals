@@ -80,10 +80,10 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
         let createdDate = goalItem.createdDate as! Date
         let expriedDate = goalItem.expiredDate as! Date
         let currentDate = Date()
-        let daysBetweenExpired = userCalendar.dateComponents([.day], from: createdDate, to: expriedDate)
-        let daysBetweenCurrent = userCalendar.dateComponents([.day], from: createdDate, to: currentDate)
+        let daysBetweenExpired = userCalendar.dateComponents([.day,.hour], from: createdDate, to: expriedDate)
+        let daysBetweenCurrent = userCalendar.dateComponents([.day,.hour], from: createdDate, to: currentDate)
         if daysBetweenCurrent.day!  <= daysBetweenExpired.day! {
-            cell.progessLabel.text = "\(daysBetweenCurrent.day!) / \(daysBetweenExpired.day!)"
+            cell.progessLabel.text = "\(daysBetweenCurrent.day!) days, \(daysBetweenCurrent.hour!) hours / \(daysBetweenExpired.day!) days, \(daysBetweenExpired.hour!) hours"
             if daysBetweenExpired.day! > 0 {
                 cell.progessView.setProgress(Float(daysBetweenCurrent.day!/daysBetweenExpired.day!), animated: true)
             } else {
@@ -100,6 +100,10 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
             cell.doneLabel.setImage(UIImage.init(named: "checked"), for: .normal)
             if goalItem.doneDate == nil {
                 cell.doneLabel.setImage(UIImage.init(named: "ExpiredDone"), for: .normal)
+                cell.progessLabel.text = "Exprired"
+            }else {
+                let doneDate = goalItem.doneDate as! Date
+                cell.progessLabel.text = "Achived at \(doneDate.formatDateToString())"
             }
         } else {
             cell.doneLabel.setImage(UIImage.init(named: "NotCheck"), for: .normal)

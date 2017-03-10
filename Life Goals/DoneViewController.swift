@@ -23,6 +23,7 @@ class DoneViewController: UIViewController {
     var tapGesture : UITapGestureRecognizer?
     var numberOfStars = 0
     var pointDictonary : [Int:Int16] = [0:0,1:3,2:4,3:5,4:6,5:7]
+    let prefs = UserDefaults.standard
     
     lazy var context : NSManagedObjectContext = {
        return CoreDataStackManager.SharedInstance().managedObjectContext
@@ -108,7 +109,7 @@ class DoneViewController: UIViewController {
                 starButtons[index].setImage(UIImage.init(named: "noColorStar"), for: .normal)
             }
         }
-        numberOfStars = star
+        numberOfStars = star + 1
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -116,12 +117,22 @@ class DoneViewController: UIViewController {
     }
     
     func saveData() {
-        goalItem?.doneDate = Date() as NSDate?
-        goalItem?.experience = experienceTextView.text
-        goalItem?.stars = Int16(numberOfStars)
-        print(numberOfStars)
-        goalItem?.points = pointDictonary[numberOfStars+1]!
-        goalItem?.done = true
+        if (goalItem?.done)! {
+            goalItem?.experience = experienceTextView.text
+        } else {
+            goalItem?.doneDate = Date() as NSDate?
+            goalItem?.experience = experienceTextView.text
+            goalItem?.stars = Int16(numberOfStars)
+            print(numberOfStars)
+            goalItem?.points = pointDictonary[numberOfStars]!
+            goalItem?.done = true
+            var points = prefs.integer(forKey: "points")
+            var stars = prefs.integer(forKey: "stars")
+            points = points + Int(pointDictonary[numberOfStars]!)
+            stars = stars + numberOfStars
+            prefs.set(points, forKey: "points")
+            prefs.set(stars, forKey: "stars")
+        }
         saveContext()
     }
 

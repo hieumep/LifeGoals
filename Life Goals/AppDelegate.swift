@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var pointDictonary : [Int:Int16] = [0:0,1:3,2:4,3:5,4:6,5:7]
+    let prefs = UserDefaults.standard
     lazy var context : NSManagedObjectContext = {
        return CoreDataStackManager.SharedInstance().managedObjectContext
     }()
@@ -28,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
        // UINavigationBar.appearance().backgroundColor = UIColor.init(red: 244/255, green: 105/255, blue: 0/255, alpha: 0.59)
+        if prefs.value(forKey: "points") == nil {
+            prefs.set(100, forKey: "points")
+            prefs.set(0, forKey: "stars")
+        }       
         return true
     }
 
@@ -66,6 +71,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     item.done = true
                     item.stars = 1
                     item.points = -5
+                    var points = prefs.integer(forKey: "points")
+                    var stars = prefs.integer(forKey: "stars")
+                    points = points - 100
+                    stars = stars + 1
+                    prefs.set(points, forKey: "points")
+                    prefs.set(stars, forKey: "stars")
                 }
             }
         }catch {

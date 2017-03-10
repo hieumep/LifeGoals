@@ -98,6 +98,10 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
             cell.doneLabel.setImage(UIImage.init(named: "checked"), for: .normal)
             if goalItem.doneDate == nil {
                 cell.doneLabel.setImage(UIImage.init(named: "ExpiredDone"), for: .normal)
+                cell.progessLabel.text = "Expired"
+            }else {
+                let doneDate = goalItem.doneDate as! Date
+                cell.progessLabel.text = "Achived at \(doneDate.formatDateToString())"
             }
         } else {
             cell.doneLabel.setImage(UIImage.init(named: "NotCheck"), for: .normal)
