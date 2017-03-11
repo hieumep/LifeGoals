@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if prefs.value(forKey: "points") == nil {
             prefs.set(100, forKey: "points")
             prefs.set(0, forKey: "stars")
+            prefs.set("Goal achivier", forKey: "name")
+            prefs.set("", forKey: "imageProfile")
         }       
         return true
     }
@@ -67,22 +69,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             for item in goalItems {
                 let expiredDate = item.expiredDate as! Date
                 let curreDate = Date()
-                if curreDate.compare(expiredDate) != .orderedAscending {
-                    item.done = true
-                    item.stars = 1
-                    item.points = -5
-                    var points = prefs.integer(forKey: "points")
-                    var stars = prefs.integer(forKey: "stars")
-                    points = points - 100
-                    stars = stars + 1
-                    prefs.set(points, forKey: "points")
-                    prefs.set(stars, forKey: "stars")
+                if !item.done {
+                    if curreDate.compare(expiredDate) != .orderedAscending {
+                        item.done = true
+                        item.stars = 1
+                        item.points = -5
+                        var points = prefs.integer(forKey: "points")
+                        var stars = prefs.integer(forKey: "stars")
+                        points = points - 5
+                        stars = stars + 1
+                        prefs.set(points, forKey: "points")
+                        prefs.set(stars, forKey: "stars")
+                    }
                 }
             }
+        
         }catch {
                 print(error)
                 abort()
         }
+        saveContext()
     }
 }
 
