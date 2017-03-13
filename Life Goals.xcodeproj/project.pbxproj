@@ -31,6 +31,11 @@
 		512FD7871E6E97B6005A22E5 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7861E6E97B6005A22E5 /* NoteViewController.swift */; };
 		517B47B41E70F49B007E9159 /* QuoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47B31E70F49B007E9159 /* QuoteObject.swift */; };
 		517B47B81E727464007E9159 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47B71E727464007E9159 /* ProfileViewController.swift */; };
+		517B47BE1E770D4E007E9159 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47BD1E770D4E007E9159 /* CustomTextField.swift */; };
+		517B47C01E771094007E9159 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47BF1E771094007E9159 /* CustomTextView.swift */; };
+		517B47C21E771434007E9159 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47C11E771434007E9159 /* QuoteViewController.swift */; };
+		517B47C41E771D25007E9159 /* QuotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47C31E771D25007E9159 /* QuotesListViewController.swift */; };
+		517B47C71E771FE3007E9159 /* QuotesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47C61E771FE3007E9159 /* QuotesListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +65,11 @@
 		512FD7861E6E97B6005A22E5 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		517B47B31E70F49B007E9159 /* QuoteObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteObject.swift; sourceTree = "<group>"; };
 		517B47B71E727464007E9159 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		517B47BD1E770D4E007E9159 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		517B47BF1E771094007E9159 /* CustomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		517B47C11E771434007E9159 /* QuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
+		517B47C31E771D25007E9159 /* QuotesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesListViewController.swift; sourceTree = "<group>"; };
+		517B47C61E771FE3007E9159 /* QuotesListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +102,7 @@
 		5123EE211E5BDF5B00087C2D /* Life Goals */ = {
 			isa = PBXGroup;
 			children = (
+				517B47C51E771FA9007E9159 /* cellViewControllers */,
 				512FD77F1E69E99A005A22E5 /* ViewControllers */,
 				5123EE4A1E5FF1BE00087C2D /* Model Class */,
 				5123EE481E5FF19800087C2D /* Support */,
@@ -112,8 +123,8 @@
 				5123EE371E5C041B00087C2D /* ExtendUIColor.swift */,
 				511198DA1E6166FE0080CF26 /* ExtendDate.swift */,
 				511198DC1E64BC6D0080CF26 /* extentionClass.swift */,
-				511198DE1E65F5460080CF26 /* GoalsTableViewCell.swift */,
-				512FD7821E6DE34C005A22E5 /* NotesTableViewCell.swift */,
+				517B47BD1E770D4E007E9159 /* CustomTextField.swift */,
+				517B47BF1E771094007E9159 /* CustomTextView.swift */,
 			);
 			name = "Extend Class";
 			sourceTree = "<group>";
@@ -149,8 +160,20 @@
 				512FD7861E6E97B6005A22E5 /* NoteViewController.swift */,
 				5123EE3D1E5E04DC00087C2D /* LongLifeGoalsViewController.swift */,
 				517B47B71E727464007E9159 /* ProfileViewController.swift */,
+				517B47C11E771434007E9159 /* QuoteViewController.swift */,
+				517B47C31E771D25007E9159 /* QuotesListViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		517B47C51E771FA9007E9159 /* cellViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				511198DE1E65F5460080CF26 /* GoalsTableViewCell.swift */,
+				512FD7821E6DE34C005A22E5 /* NotesTableViewCell.swift */,
+				517B47C61E771FE3007E9159 /* QuotesListTableViewCell.swift */,
+			);
+			name = cellViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				517B47C41E771D25007E9159 /* QuotesListViewController.swift in Sources */,
 				512FD7831E6DE34C005A22E5 /* NotesTableViewCell.swift in Sources */,
 				517B47B41E70F49B007E9159 /* QuoteObject.swift in Sources */,
 				511198D71E6159D50080CF26 /* ImageCache.swift in Sources */,
@@ -235,9 +259,12 @@
 				5123EE381E5C041B00087C2D /* ExtendUIColor.swift in Sources */,
 				5123EE471E5FEC2800087C2D /* NoteObject.swift in Sources */,
 				5123EE3C1E5D700200087C2D /* ShortLifeGoalsViewController.swift in Sources */,
+				517B47C71E771FE3007E9159 /* QuotesListTableViewCell.swift in Sources */,
+				517B47C21E771434007E9159 /* QuoteViewController.swift in Sources */,
 				5123EE431E5E132100087C2D /* DataModel.xcdatamodeld in Sources */,
 				5123EE351E5BE79E00087C2D /* GoalViewController.swift in Sources */,
 				5123EE451E5FE24A00087C2D /* GoalObject.swift in Sources */,
+				517B47BE1E770D4E007E9159 /* CustomTextField.swift in Sources */,
 				511198DB1E6166FE0080CF26 /* ExtendDate.swift in Sources */,
 				511198DF1E65F5460080CF26 /* GoalsTableViewCell.swift in Sources */,
 				5123EE3E1E5E04DC00087C2D /* LongLifeGoalsViewController.swift in Sources */,
@@ -245,6 +272,7 @@
 				512FD7811E69E9D6005A22E5 /* PhotoViewController.swift in Sources */,
 				512FD7871E6E97B6005A22E5 /* NoteViewController.swift in Sources */,
 				517B47B81E727464007E9159 /* ProfileViewController.swift in Sources */,
+				517B47C01E771094007E9159 /* CustomTextView.swift in Sources */,
 				5123EE401E5E0FF200087C2D /* CoreDataStackManager.swift in Sources */,
 				511198DD1E64BC6D0080CF26 /* extentionClass.swift in Sources */,
 			);

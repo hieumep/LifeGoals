@@ -109,7 +109,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="BrS-hZ-d2d"/>
                                                 </constraints>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
                                         </subviews>
@@ -773,7 +773,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="YlI-Dc-6Ko"/>
                                                 </constraints>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
                                         </subviews>
@@ -1465,7 +1465,7 @@
         <!--Quotes List-->
         <scene sceneID="09o-eQ-865">
             <objects>
-                <viewController title="Quotes List" id="XN2-IH-6kC" sceneMemberID="viewController">
+                <viewController title="Quotes List" id="XN2-IH-6kC" customClass="QuotesListViewController" customModule="Life_Goals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="76i-DC-RnD"/>
                         <viewControllerLayoutGuide type="bottom" id="r3x-CG-BrZ"/>
@@ -1473,7 +1473,59 @@
                     <view key="view" contentMode="scaleToFill" id="V3d-a3-Cde">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AC9-dy-5Mc">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="quotesListCell" rowHeight="108" id="zc2-wt-qWV" customClass="QuotesListTableViewCell" customModule="Life_Goals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="108"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zc2-wt-qWV" id="9k4-Wg-cai">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It’s better to be at the bottom of the ladder you want to climb than at the top of the one you don’t." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRg-Rq-tPP">
+                                                    <rect key="frame" x="18" y="11" width="304" height="57.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKh-OU-Ajz">
+                                                    <rect key="frame" x="0.0" y="76" width="310" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                                    <color key="textColor" red="0.95786434409999999" green="0.41091305020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KRg-Rq-tPP" firstAttribute="trailing" secondItem="9k4-Wg-cai" secondAttribute="trailingMargin" constant="10" id="5za-vf-2Pu"/>
+                                                <constraint firstItem="OKh-OU-Ajz" firstAttribute="top" secondItem="KRg-Rq-tPP" secondAttribute="bottom" constant="7.5" id="7D8-w4-Gxx"/>
+                                                <constraint firstItem="OKh-OU-Ajz" firstAttribute="leading" secondItem="9k4-Wg-cai" secondAttribute="leading" id="Okf-kn-Oh8"/>
+                                                <constraint firstAttribute="trailing" secondItem="OKh-OU-Ajz" secondAttribute="trailing" constant="10" id="bfi-Wl-yU8"/>
+                                                <constraint firstItem="KRg-Rq-tPP" firstAttribute="leading" secondItem="9k4-Wg-cai" secondAttribute="leadingMargin" constant="10" id="vK5-Ik-9xm"/>
+                                                <constraint firstItem="KRg-Rq-tPP" firstAttribute="top" secondItem="9k4-Wg-cai" secondAttribute="topMargin" constant="3" id="vUX-wk-5C0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="OKh-OU-Ajz" id="kcF-UM-5Jg"/>
+                                            <outlet property="quoteLabel" destination="KRg-Rq-tPP" id="9S6-4t-x5w"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XN2-IH-6kC" id="7lJ-j1-H1R"/>
+                                    <outlet property="delegate" destination="XN2-IH-6kC" id="wnI-lY-y7k"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r3x-CG-BrZ" firstAttribute="top" secondItem="AC9-dy-5Mc" secondAttribute="bottom" id="5xH-Bk-GFF"/>
+                            <constraint firstAttribute="trailing" secondItem="AC9-dy-5Mc" secondAttribute="trailing" id="NiT-KT-lln"/>
+                            <constraint firstItem="AC9-dy-5Mc" firstAttribute="leading" secondItem="V3d-a3-Cde" secondAttribute="leading" id="brl-e1-SPw"/>
+                            <constraint firstItem="AC9-dy-5Mc" firstAttribute="top" secondItem="76i-DC-RnD" secondAttribute="bottom" id="dtl-aH-Wlj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Quotes List" id="jf7-jr-Siq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tM4-rs-50n">
@@ -1483,15 +1535,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="AC9-dy-5Mc" id="GRg-ht-5xY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWV-gV-gWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-724" y="998"/>
+            <point key="canvasLocation" x="-725.625" y="997.18309859154931"/>
         </scene>
         <!--Quote-->
         <scene sceneID="QPz-DC-icy">
             <objects>
-                <viewController id="s9N-s9-wbY" sceneMemberID="viewController">
+                <viewController id="s9N-s9-wbY" customClass="QuoteViewController" customModule="Life_Goals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7oZ-hj-Epa"/>
                         <viewControllerLayoutGuide type="bottom" id="zPx-B3-7tx"/>
@@ -1506,31 +1561,57 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="t9v-oW-BIO">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Who is author?" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gxS-uU-Bpt">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Who is author?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gxS-uU-Bpt" customClass="CustomTextField" customModule="Life_Goals" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PvL-Hy-BaU">
                                         <rect key="frame" x="0.0" y="40" width="300" height="200"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Quotes is...." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JxP-Qd-9Xg">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your quote is ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JxP-Qd-9Xg" customClass="CustomTextView" customModule="Life_Goals" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ea9-Er-6yv">
                                         <rect key="frame" x="0.0" y="250" width="300" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuO-Ne-rrl">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuO-Ne-rrl">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                                <state key="normal" title="Save"/>
+                                                <state key="normal" title="Save" backgroundImage="saveBackground"/>
+                                                <connections>
+                                                    <action selector="saveAction:" destination="s9N-s9-wbY" eventType="touchUpInside" id="qMN-vc-cLL"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -1548,6 +1629,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Quote" id="EY3-gb-Hr7"/>
+                    <connections>
+                        <outlet property="authorText" destination="gxS-uU-Bpt" id="oiM-fb-r6y"/>
+                        <outlet property="quoteText" destination="JxP-Qd-9Xg" id="dfO-OK-1QN"/>
+                        <outlet property="saveButton" destination="nuO-Ne-rrl" id="b9j-h8-Qdq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dg-nY-zV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
