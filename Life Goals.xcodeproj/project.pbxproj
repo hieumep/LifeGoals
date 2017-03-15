@@ -40,6 +40,7 @@
 		517B47CB1E786B36007E9159 /* DailyNoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47CA1E786B36007E9159 /* DailyNoteObject.swift */; };
 		517B47CD1E79089E007E9159 /* DailyNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47CC1E79089E007E9159 /* DailyNotesViewController.swift */; };
 		517B47CF1E790ABA007E9159 /* DailyNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47CE1E790ABA007E9159 /* DailyNotesTableViewCell.swift */; };
+		517B47D21E79B723007E9159 /* ConvenientClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47D11E79B723007E9159 /* ConvenientClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		517B47CA1E786B36007E9159 /* DailyNoteObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyNoteObject.swift; sourceTree = "<group>"; };
 		517B47CC1E79089E007E9159 /* DailyNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyNotesViewController.swift; sourceTree = "<group>"; };
 		517B47CE1E790ABA007E9159 /* DailyNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyNotesTableViewCell.swift; sourceTree = "<group>"; };
+		517B47D11E79B723007E9159 /* ConvenientClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvenientClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				5123EE3F1E5E0FF200087C2D /* CoreDataStackManager.swift */,
 				511198D61E6159D50080CF26 /* ImageCache.swift */,
 				511198D81E6165BF0080CF26 /* DateConvenient.swift */,
+				517B47D11E79B723007E9159 /* ConvenientClass.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				511198D91E6165BF0080CF26 /* DateConvenient.swift in Sources */,
 				5123EE381E5C041B00087C2D /* ExtendUIColor.swift in Sources */,
 				5123EE471E5FEC2800087C2D /* NoteObject.swift in Sources */,
+				517B47D21E79B723007E9159 /* ConvenientClass.swift in Sources */,
 				517B47CD1E79089E007E9159 /* DailyNotesViewController.swift in Sources */,
 				5123EE3C1E5D700200087C2D /* ShortLifeGoalsViewController.swift in Sources */,
 				517B47C71E771FE3007E9159 /* QuotesListTableViewCell.swift in Sources */,

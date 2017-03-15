@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        return CoreDataStackManager.SharedInstance().managedObjectContext
     }()
     
+    //var quoteArray = [(String,String)]()
+    
     func saveContext(){
         CoreDataStackManager.SharedInstance().saveContext()
     }
@@ -34,7 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             prefs.set(0, forKey: "stars")
             prefs.set("Goal achivier", forKey: "name")
             prefs.set("", forKey: "imageProfile")
-        }       
+        }
+        
+        if prefs.value(forKey: "quotes") == nil {
+            if ConvenientClass.shareInstance().insertQuotesIntoDatabase() {
+                prefs.set(1, forKey: "quotes")
+            }
+        }
         return true
     }
 

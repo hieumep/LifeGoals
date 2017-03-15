@@ -14,6 +14,8 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var quoteLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
     
     let fetchRequest : NSFetchRequest<Goal> = Goal.fetchRequest()
     var indexPathArray = [IndexPath]()
@@ -35,6 +37,9 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
         fetchedResultsController.delegate = self
         indexPathArray.removeAll()
         fetchData(segmentedControl.selectedSegmentIndex)
+        let quoteItem = ConvenientClass.shareInstance().getRandomQuote()
+        quoteLabel.text = quoteItem.quote
+        authorLabel.text = "__" + quoteItem.author + "__"
     }
     
     override func viewDidAppear(_ animated: Bool) {

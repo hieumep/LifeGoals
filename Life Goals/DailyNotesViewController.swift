@@ -13,6 +13,8 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var quoteLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
     
     let fetchRequest : NSFetchRequest<DailyNote> = DailyNote.fetchRequest()
     
@@ -29,7 +31,11 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData(0)
+        loadData(segmentedControl.selectedSegmentIndex)
+        let quoteItem = ConvenientClass.shareInstance().getRandomQuote()
+        quoteLabel.text = quoteItem.quote
+        authorLabel.text = "__" + quoteItem.author + "__"
+        
         // Do any additional setup after loading the view.
     }
 
@@ -95,8 +101,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let item = fetchedResultsController.object(at: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let item = fetchedResultsController.object(at: indexPath)            
             context.delete(item)
             saveContext()
         }
@@ -125,12 +130,11 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             break
             
-        case .delete :
-            
+        case .delete :            
             if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.deleteRows(at: [indexPath], with: .left)
+                break
             }
-            break
             
         case .update :
             if let indexPath = indexPath , let cell = tableView.cellForRow(at: indexPath) as? DailyNotesTableViewCell {
