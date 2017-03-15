@@ -29,7 +29,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anL-bv-Khv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162" y="78"/>
+            <point key="canvasLocation" x="-1644" y="-1106"/>
         </scene>
         <!--Long Term-->
         <scene sceneID="Ar5-mP-K5a">
@@ -63,7 +63,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80G-ap-WGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2483" y="662"/>
+            <point key="canvasLocation" x="-1644" y="371"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1KE-N8-4hi">
@@ -76,6 +76,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="llG-zx-gWn" kind="relationship" relationship="viewControllers" id="NpF-2G-r4c"/>
                         <segue destination="dxf-8s-dQp" kind="relationship" relationship="viewControllers" id="CKI-Q9-flP"/>
                         <segue destination="cpm-kO-TwN" kind="relationship" relationship="viewControllers" id="fYe-vW-0Fc"/>
                         <segue destination="0aN-HL-jFU" kind="relationship" relationship="viewControllers" id="kvN-ME-wi3"/>
@@ -83,7 +84,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lp5-xE-1yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3195" y="-151"/>
+            <point key="canvasLocation" x="-2614" y="-394"/>
         </scene>
         <!--Goal-->
         <scene sceneID="aWY-Sp-Zr3">
@@ -310,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uca-Hl-3jO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="619" y="-565"/>
+            <point key="canvasLocation" x="300" y="-661"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="QdR-TZ-3UP">
@@ -361,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6B-fE-xEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2267" y="-565"/>
+            <point key="canvasLocation" x="1877" y="-757"/>
         </scene>
         <!--Short Life Goals-->
         <scene sceneID="OJH-IJ-0gN">
@@ -420,7 +421,7 @@
                                                     <color key="tintColor" red="0.95786434409999999" green="0.41091305020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20/30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDi-Y2-u4A">
-                                                    <rect key="frame" x="86" y="37" width="150" height="10"/>
+                                                    <rect key="frame" x="85" y="37" width="150" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="95I-47-Ycu"/>
                                                     </constraints>
@@ -526,7 +527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztv-za-tno" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="77"/>
+            <point key="canvasLocation" x="-728" y="-1107"/>
         </scene>
         <!--Notes-->
         <scene sceneID="ENz-ea-QpQ">
@@ -747,7 +748,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Gg-86-PVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1419" y="76"/>
+            <point key="canvasLocation" x="1119" y="-81"/>
         </scene>
         <!--Note View Controller-->
         <scene sceneID="vCi-Px-0UN">
@@ -942,7 +943,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6m-WN-47Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2192" y="75"/>
+            <point key="canvasLocation" x="1843" y="-81"/>
         </scene>
         <!--Long Life Goals-->
         <scene sceneID="z7Y-Qg-DGc">
@@ -1106,7 +1107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTB-Aa-FT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-767" y="-468"/>
+            <point key="canvasLocation" x="-726" y="-394"/>
         </scene>
         <!--Done-->
         <scene sceneID="1aC-0r-60B">
@@ -1288,7 +1289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hK-XY-pjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="-636"/>
+            <point key="canvasLocation" x="1121" y="-757"/>
         </scene>
         <!--Profile-->
         <scene sceneID="ujw-lG-wRi">
@@ -1460,7 +1461,205 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WN3-ce-14x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1502" y="999"/>
+            <point key="canvasLocation" x="-729" y="371"/>
+        </scene>
+        <!--Daily Notes-->
+        <scene sceneID="JYB-Ve-Y0s">
+            <objects>
+                <navigationController id="llG-zx-gWn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Daily Notes" id="kug-xE-ZUb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytW-Bp-Nkv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="G4e-7N-yI1" kind="relationship" relationship="rootViewController" id="kXb-fo-PAx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="neR-UK-WdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1646" y="1077"/>
+        </scene>
+        <!--List to do-->
+        <scene sceneID="6tp-3R-yLx">
+            <objects>
+                <viewController id="G4e-7N-yI1" customClass="DailyNotesViewController" customModule="Life_Goals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k8C-rd-W8J"/>
+                        <viewControllerLayoutGuide type="bottom" id="43y-dP-m0B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PTJ-WG-pdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="1" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="pGX-pc-YH4">
+                                <rect key="frame" x="0.0" y="98" width="320" height="470"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dailyNotesCell" rowHeight="84" id="lEU-uT-oLf" customClass="DailyNotesTableViewCell" customModule="Life_Goals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1" width="320" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lEU-uT-oLf" id="WcP-wS-VWf">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hirsch thích lối sống của thị trấn nhỏ nhất nước Mỹ này. Ông thích việc không phải dừng lại chờ đèn đỏ khi đi từ nhà tới Buford" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjn-QD-ZXH">
+                                                    <rect key="frame" x="10" y="0.0" width="300" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="3w5-Qy-m1f"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                                    <color key="textColor" red="0.95786434409999999" green="0.41091305020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCk-cI-YvF">
+                                                    <rect key="frame" x="280" y="45" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="e55-gS-Kya"/>
+                                                        <constraint firstAttribute="width" constant="30" id="osM-P8-gAZ"/>
+                                                    </constraints>
+                                                    <state key="normal" image="NotCheck"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="BCk-cI-YvF" secondAttribute="trailing" constant="10" id="06o-A1-YSE"/>
+                                                <constraint firstItem="Sjn-QD-ZXH" firstAttribute="leading" secondItem="WcP-wS-VWf" secondAttribute="leading" constant="10" id="D4K-0W-5Qn"/>
+                                                <constraint firstAttribute="trailing" secondItem="Sjn-QD-ZXH" secondAttribute="trailing" constant="10" id="Lbc-qK-10w"/>
+                                                <constraint firstItem="BCk-cI-YvF" firstAttribute="top" secondItem="Sjn-QD-ZXH" secondAttribute="bottom" constant="5" id="Ybj-Iv-hkA"/>
+                                                <constraint firstItem="Sjn-QD-ZXH" firstAttribute="top" secondItem="WcP-wS-VWf" secondAttribute="top" id="jtU-R9-GRx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="doneButton" destination="BCk-cI-YvF" id="5sK-Qh-wjv"/>
+                                            <outlet property="noteLabel" destination="Sjn-QD-ZXH" id="E0X-yT-3ou"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="G4e-7N-yI1" id="xuk-bQ-J9R"/>
+                                    <outlet property="delegate" destination="G4e-7N-yI1" id="mED-cP-azt"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Khl-iX-iQ6">
+                                <rect key="frame" x="88" y="69" width="145" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="Hjx-6i-RjW"/>
+                                    <constraint firstAttribute="width" constant="145" id="RXd-py-SXb"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="29" id="uZb-lo-6eC"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Not Done"/>
+                                    <segment title="Done"/>
+                                </segments>
+                                <color key="tintColor" red="0.95786434409999999" green="0.41091305020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmeted:" destination="G4e-7N-yI1" eventType="valueChanged" id="ged-uE-675"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Khl-iX-iQ6" firstAttribute="centerX" secondItem="PTJ-WG-pdC" secondAttribute="centerX" id="3xj-2X-y6h"/>
+                            <constraint firstItem="Khl-iX-iQ6" firstAttribute="top" secondItem="k8C-rd-W8J" secondAttribute="bottom" constant="5" id="Gke-Df-rdO"/>
+                            <constraint firstAttribute="bottom" secondItem="pGX-pc-YH4" secondAttribute="bottom" id="PtI-EJ-Dqm"/>
+                            <constraint firstAttribute="trailing" secondItem="pGX-pc-YH4" secondAttribute="trailing" id="UYB-UJ-ZJ0"/>
+                            <constraint firstItem="pGX-pc-YH4" firstAttribute="top" secondItem="Khl-iX-iQ6" secondAttribute="bottom" id="hTA-xJ-Zxf"/>
+                            <constraint firstItem="pGX-pc-YH4" firstAttribute="leading" secondItem="PTJ-WG-pdC" secondAttribute="leading" id="hlw-qL-vkI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="List to do" id="jDA-9L-Hfd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="R6z-iC-z6v">
+                            <connections>
+                                <segue destination="5by-BD-dpJ" kind="show" id="nHU-1s-e5C"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="Khl-iX-iQ6" id="Oty-LF-efC"/>
+                        <outlet property="tableView" destination="pGX-pc-YH4" id="IaA-uu-X7k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5df-Zj-zp6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-768.75" y="1075.3521126760563"/>
+        </scene>
+        <!--Daily Note-->
+        <scene sceneID="GGz-VF-2wq">
+            <objects>
+                <viewController storyboardIdentifier="dailyNoteViewController" title="Daily Note" id="5by-BD-dpJ" customClass="DailyNoteViewController" customModule="Life_Goals" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b5Q-3X-hKU"/>
+                        <viewControllerLayoutGuide type="bottom" id="AoO-Md-pva"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LMg-fS-AFX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to done today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6P-g9-1P5">
+                                <rect key="frame" x="26" y="84" width="268" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="d5Z-Ov-O3l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.95786434409999999" green="0.41091305020000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8QP-N2-A9t" customClass="CustomTextView" customModule="Life_Goals" customModuleProvider="target">
+                                <rect key="frame" x="26" y="118" width="268" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="0ud-v0-6t2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.58611500260000005" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hx-sL-Lw2">
+                                <rect key="frame" x="10" y="288" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="pfm-bT-f69"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Save" backgroundImage="saveBackground">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAction:" destination="5by-BD-dpJ" eventType="touchUpInside" id="D5d-mD-ePc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F6P-g9-1P5" firstAttribute="leading" secondItem="LMg-fS-AFX" secondAttribute="leadingMargin" constant="10" id="C8a-gc-3PM"/>
+                            <constraint firstItem="8QP-N2-A9t" firstAttribute="leading" secondItem="LMg-fS-AFX" secondAttribute="leadingMargin" constant="10" id="Igt-sR-l84"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F6P-g9-1P5" secondAttribute="trailing" constant="10" id="N7z-Wt-2hH"/>
+                            <constraint firstItem="8QP-N2-A9t" firstAttribute="top" secondItem="F6P-g9-1P5" secondAttribute="bottom" constant="10" id="O3g-iZ-0eT"/>
+                            <constraint firstItem="F6P-g9-1P5" firstAttribute="top" secondItem="b5Q-3X-hKU" secondAttribute="bottom" constant="20" id="Rhm-uC-luU"/>
+                            <constraint firstItem="8hx-sL-Lw2" firstAttribute="leading" secondItem="LMg-fS-AFX" secondAttribute="leading" constant="10" id="Vfp-x4-sPW"/>
+                            <constraint firstItem="8hx-sL-Lw2" firstAttribute="top" secondItem="8QP-N2-A9t" secondAttribute="bottom" constant="20" id="dfU-Sy-nJO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8QP-N2-A9t" secondAttribute="trailing" constant="10" id="hcI-Ly-KId"/>
+                            <constraint firstAttribute="trailing" secondItem="8hx-sL-Lw2" secondAttribute="trailing" constant="10" id="phE-DK-He3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dailyNoteText" destination="8QP-N2-A9t" id="70H-C7-qUX"/>
+                        <outlet property="saveButton" destination="8hx-sL-Lw2" id="TxB-7E-Hw1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qYY-6r-Dpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91" y="1075"/>
         </scene>
         <!--Quotes List-->
         <scene sceneID="09o-eQ-865">
@@ -1541,7 +1740,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWV-gV-gWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-725.625" y="997.18309859154931"/>
+            <point key="canvasLocation" x="99" y="371"/>
         </scene>
         <!--quoteViewController-->
         <scene sceneID="QPz-DC-icy">
@@ -1637,7 +1836,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dg-nY-zV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-80.625" y="990.84507042253517"/>
+            <point key="canvasLocation" x="1119" y="592"/>
         </scene>
     </scenes>
     <resources>

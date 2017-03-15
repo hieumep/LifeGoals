@@ -122,6 +122,7 @@ class QuotesListViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+      
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert :
