@@ -60,7 +60,7 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sessionInfo = fetchedResultsController.sections![section]
+        let sessionInfo = fetchedResultsController.sections![section]        
         return sessionInfo.numberOfObjects
     }
     

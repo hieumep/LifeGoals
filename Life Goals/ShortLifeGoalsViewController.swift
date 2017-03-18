@@ -164,8 +164,7 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
             }
         case .delete :
             if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .left)
-                print("only delete")
+                tableView.deleteRows(at: [indexPath], with: .left)                
                 tableView.reloadData()
                 break
             }
