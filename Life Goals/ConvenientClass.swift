@@ -127,7 +127,7 @@ class ConvenientClass  {
         var content = [String : String]()
         content["title"] = quote.author
         content["body"] = quote.quote
-        let newDate = Date().addingTimeInterval(60)
+        let newDate = Date().addingTimeInterval(43200)
         scheduleNotification(at: newDate, contentNotification: content)
     }
     
@@ -141,7 +141,7 @@ class ConvenientClass  {
                 var content = [String : String]()
                 content["title"] = "Remind set goal"
                 content["body"] = "You should set goal to be success"
-                let newDate = Date().addingTimeInterval(60)
+                let newDate = Date().addingTimeInterval(43200)
                 scheduleNotification(at: newDate, contentNotification: content)
                 return true
             }
@@ -191,20 +191,23 @@ class ConvenientClass  {
         }        
         UIApplication.shared.open(url, options: [:], completionHandler: completion)
     }
+    
     //func call alert rate app 
     func rateReviewApp(appId: String) -> UIAlertController{
         let alertVC = UIAlertController(title: "Rate and Review", message: "Tell everyone how about you love app", preferredStyle: .alert)
         
-        let rateAction = UIAlertAction(title: "Rate and Review", style: .default, handler: { action in
-            let numberOfActiveApp = self.prefs.value(forKey: "rateReview")
-            print("let do it \(numberOfActiveApp)")
-            let url = URL(string : "itms-apps://itunes.apple.com/app/1116877061")
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        let rateAction = UIAlertAction(title: "Rate and Review", style: .default, handler: { action in            
+            let url = URL(string : "itms-apps://itunes.apple.com/gb/app/id" + appId + "?action=write-review&mt=8")
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url!)
+            }
+            
         })
         
         let laterAction = UIAlertAction(title: "Maybe Later", style:.default, handler: { action in
             self.prefs.set(0, forKey: "rateReview")
-            //print("let do it \(numberOfActiveApp)")
     })
     
         alertVC.addAction(rateAction)

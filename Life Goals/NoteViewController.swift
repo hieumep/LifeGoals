@@ -134,6 +134,7 @@ class NoteViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let imagePicked = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.contentMode = .scaleToFill
+        imagePicked.withHorizontallyFlippedOrientation()
         imageView.image = imagePicked
         image = imagePicked
         dismiss(animated: true, completion: nil)

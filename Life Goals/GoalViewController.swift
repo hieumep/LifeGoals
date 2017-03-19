@@ -46,6 +46,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         imagePicker.sourceType = UIImagePickerControllerSourceType.camera
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
+        
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -159,6 +160,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let pickedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.contentMode = .scaleToFill
+        pickedImage.withHorizontallyFlippedOrientation()
         imageView.image = pickedImage
         self.image = pickedImage
         dismiss(animated: true, completion: nil)

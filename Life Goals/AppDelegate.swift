@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var pointDictonary : [Int:Int16] = [0:0,1:3,2:4,3:5,4:6,5:7]
     let prefs = UserDefaults.standard
-    let numberTurnRateApp = 2
+    let numberTurnRateApp = 20
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             prefs.set(numberOfActiveApp, forKey: "rateReview")
             if numberOfActiveApp == numberTurnRateApp {
                 DispatchQueue.main.async(execute: {
-                    let alertVC = ConvenientClass.shareInstance().rateReviewApp(appId: "11")
+                    let alertVC = ConvenientClass.shareInstance().rateReviewApp(appId: "1116877061")
                     self.window?.rootViewController?.present(alertVC, animated: true, completion: nil)
                 })
 

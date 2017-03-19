@@ -168,7 +168,6 @@
 				5123EE341E5BE79E00087C2D /* GoalViewController.swift */,
 				512FD77D1E669FE9005A22E5 /* DoneViewController.swift */,
 				512FD7801E69E9D6005A22E5 /* PhotoViewController.swift */,
-				512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */,
 				512FD7861E6E97B6005A22E5 /* NoteViewController.swift */,
 				517B47B71E727464007E9159 /* ProfileViewController.swift */,
 				517B47C11E771434007E9159 /* QuoteViewController.swift */,
@@ -195,6 +194,7 @@
 				5123EE3D1E5E04DC00087C2D /* LongLifeGoalsViewController.swift */,
 				517B47C31E771D25007E9159 /* QuotesListViewController.swift */,
 				517B47CC1E79089E007E9159 /* DailyNotesViewController.swift */,
+				512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */,
 			);
 			name = TableViewController;
 			sourceTree = "<group>";

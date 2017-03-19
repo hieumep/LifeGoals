@@ -54,21 +54,24 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         
         
-        expiredDate = goalItem.expiredDate as? Date
-        expiredLabel.text = "Expired : \(expiredDate!.formatDateToString())"
-        
-        if goalItem.done {
-            doneLabel.text = "Done"
-        } else {
-            doneLabel.text = "Not Done"
-        }
-        
-        photo.image = ImageCache.sharedInstance().getImageWithIdentifier(goalItem.photo)
-        
-        goalLabel.text = goalItem.goal
-        goalDescriptionLabel.text = goalItem.goalDescription
+            expiredDate = goalItem.expiredDate as? Date
+            expiredLabel.text = "Expired : \(expiredDate!.formatDateToString())"
             
-        fetchedResultController.delegate = self
+            if goalItem.done {
+                doneLabel.text = "Done"
+                navigationItem.rightBarButtonItems?[0].isEnabled = false
+            } else {
+                doneLabel.text = "Not Done"
+            }
+            
+            photo.image = ImageCache.sharedInstance().getImageWithIdentifier(goalItem.photo)
+            
+            goalLabel.text = goalItem.goal
+            goalDescriptionLabel.text = goalItem.goalDescription
+            
+            
+                
+            fetchedResultController.delegate = self
         }
     }
     
