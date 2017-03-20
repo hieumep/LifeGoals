@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import Firebase
 
-class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate{
+class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, GADBannerViewDelegate{
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var addButton: UIBarButtonItem!     
@@ -21,8 +22,8 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
     
     let fetchRequest : NSFetchRequest<Goal> = Goal.fetchRequest()
     var indexPathArray = [IndexPath]()
-   // var indexPathDic = [Int:IndexPath]()
-   // var tagnumber = 1
+    let bannerAds = AdsClass("ca-app-pub-5300329803332227/1891824192")
+    
     lazy var context : NSManagedObjectContext = {
         return CoreDataStackManager.SharedInstance().managedObjectContext
     }()
@@ -44,12 +45,14 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
         let quoteItem = ConvenientClass.shareInstance().getRandomQuote()
         quoteLabel.text = quoteItem.quote
         authorLabel.text = "__" + quoteItem.author + "__"
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //tableView.reloadData()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let maxY = navigationController?.navigationBar.frame.maxY
+        let bannerView = bannerAds.getBannerView(maxY!,rootViewController : self)
+        view.addSubview(bannerView)
     }
 
     override func didReceiveMemoryWarning() {

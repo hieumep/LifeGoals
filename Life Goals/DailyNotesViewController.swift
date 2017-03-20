@@ -17,6 +17,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var authorLabel: UILabel!
     
     let fetchRequest : NSFetchRequest<DailyNote> = DailyNote.fetchRequest()
+    let bannerAds = AdsClass("ca-app-pub-5300329803332227/3368557399")
     
     lazy var context : NSManagedObjectContext = {
         return CoreDataStackManager.SharedInstance().managedObjectContext
@@ -39,10 +40,12 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //tableView.reloadData()
-}
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let maxY = navigationController?.navigationBar.frame.maxY
+        let bannerView = bannerAds.getBannerView(maxY!,rootViewController : self)
+        view.addSubview(bannerView)
+    }
     
     @IBAction func segmeted(_ sender: UISegmentedControl) {
         loadData(sender.selectedSegmentIndex)

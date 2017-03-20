@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var pointLabel: UILabel!
@@ -16,15 +16,26 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var pointImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var stacKView: UIStackView!
+    @IBOutlet weak var notificationOnOffLabel: UILabel!
+    @IBOutlet weak var notificationNoteLabel: UILabel!
     
     
     let pref = UserDefaults.standard
     var tapNameGestures : UITapGestureRecognizer? = nil
+    let bannerAds = AdsClass("ca-app-pub-5300329803332227/8769289390")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let maxY = navigationController?.navigationBar.frame.maxY
+        let bannerView = bannerAds.getBannerView(maxY!,rootViewController : self)
+        view.addSubview(bannerView)
     }
     
     func setupLayout() {
@@ -54,6 +65,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         //check camera avaiable
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
+        //check notfication authorization
+        if let status = pref.value(forKey: "notification") as? Bool {
+            if status {
+                notificationOnOffLabel.text = "On"
+                notificationNoteLabel.isHidden = true
+            } else {
+                notificationOnOffLabel.text = "off"
+                notificationNoteLabel.isHidden = false
+            }
+        }
     }
     
     func nameChange(_ gesture : UIGestureRecognizer) {

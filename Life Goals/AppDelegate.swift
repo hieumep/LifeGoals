@@ -8,15 +8,18 @@
 
 import UIKit
 import UserNotifications
+import Firebase
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GADBannerViewDelegate {
 
     var window: UIWindow?
     var pointDictonary : [Int:Int16] = [0:0,1:3,2:4,3:5,4:6,5:7]
     let prefs = UserDefaults.standard
     let numberTurnRateApp = 20
+    var adMobBannerAdView: GADBannerView! = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -25,13 +28,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
         
+        //set configure Firebase
+        FIRApp.configure()
+        adMobBannerAdView.isHidden = true
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-5300329803332227~7292556198")        
+        adMobBannerAdView.delegate = self
+        
+        
         //ask permision turn on notification 
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]){ (accept, error) in
             if !accept {
                 print("Sorry, they don't want")
+                self.prefs.set(false, forKey: "notification")
             } else {
                 let category = UNNotificationCategory(identifier: "remidSetGoal", actions: [], intentIdentifiers: [], options: [])
                 UNUserNotificationCenter.current().setNotificationCategories([category])
+                self.prefs.set(true, forKey: "notification")
             }
         }
        
@@ -55,6 +67,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        UNUserNotificationCenter.current().getNotificationSettings{(setting) in
+            if setting.authorizationStatus != .authorized {
+                self.prefs.set(false, forKey: "notification")
+            }
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -95,6 +112,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             }
         }
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        adMobBannerAdView.isHidden = true
+        print("loi banner : \(error.localizedDescription)")
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        adMobBannerAdView.isHidden = false
+        print("adds received")
     }
     
 }

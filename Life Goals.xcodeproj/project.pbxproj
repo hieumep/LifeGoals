@@ -29,6 +29,8 @@
 		512FD7831E6DE34C005A22E5 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7821E6DE34C005A22E5 /* NotesTableViewCell.swift */; };
 		512FD7851E6DE5E0005A22E5 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */; };
 		512FD7871E6E97B6005A22E5 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512FD7861E6E97B6005A22E5 /* NoteViewController.swift */; };
+		514CDCBF1E7F8E4F00173DC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 514CDCBE1E7F8E4F00173DC7 /* GoogleService-Info.plist */; };
+		514CDCC11E804BE400173DC7 /* AdsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CDCC01E804BE400173DC7 /* AdsClass.swift */; };
 		517B47B41E70F49B007E9159 /* QuoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47B31E70F49B007E9159 /* QuoteObject.swift */; };
 		517B47B81E727464007E9159 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47B71E727464007E9159 /* ProfileViewController.swift */; };
 		517B47BE1E770D4E007E9159 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47BD1E770D4E007E9159 /* CustomTextField.swift */; };
@@ -41,9 +43,12 @@
 		517B47CD1E79089E007E9159 /* DailyNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47CC1E79089E007E9159 /* DailyNotesViewController.swift */; };
 		517B47CF1E790ABA007E9159 /* DailyNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47CE1E790ABA007E9159 /* DailyNotesTableViewCell.swift */; };
 		517B47D21E79B723007E9159 /* ConvenientClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517B47D11E79B723007E9159 /* ConvenientClass.swift */; };
+		AAF2F941471E0C45E8B2D688 /* libPods-Life Goals.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 901F473000172616EF377D8F /* libPods-Life Goals.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120D2EF80AD9ACF9346F9826 /* Pods-Life Goals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Life Goals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Life Goals/Pods-Life Goals.debug.xcconfig"; sourceTree = "<group>"; };
+		135A1885CF1CD3E49DF67BC3 /* Pods-Life Goals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Life Goals.release.xcconfig"; path = "Pods/Target Support Files/Pods-Life Goals/Pods-Life Goals.release.xcconfig"; sourceTree = "<group>"; };
 		511198D61E6159D50080CF26 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		511198D81E6165BF0080CF26 /* DateConvenient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateConvenient.swift; sourceTree = "<group>"; };
 		511198DA1E6166FE0080CF26 /* ExtendDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendDate.swift; sourceTree = "<group>"; };
@@ -68,6 +73,8 @@
 		512FD7821E6DE34C005A22E5 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		512FD7841E6DE5E0005A22E5 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		512FD7861E6E97B6005A22E5 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		514CDCBE1E7F8E4F00173DC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		514CDCC01E804BE400173DC7 /* AdsClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsClass.swift; sourceTree = "<group>"; };
 		517B47B31E70F49B007E9159 /* QuoteObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteObject.swift; sourceTree = "<group>"; };
 		517B47B71E727464007E9159 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		517B47BD1E770D4E007E9159 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -80,6 +87,7 @@
 		517B47CC1E79089E007E9159 /* DailyNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyNotesViewController.swift; sourceTree = "<group>"; };
 		517B47CE1E790ABA007E9159 /* DailyNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyNotesTableViewCell.swift; sourceTree = "<group>"; };
 		517B47D11E79B723007E9159 /* ConvenientClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvenientClass.swift; sourceTree = "<group>"; };
+		901F473000172616EF377D8F /* libPods-Life Goals.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Life Goals.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,17 +95,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF2F941471E0C45E8B2D688 /* libPods-Life Goals.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17D5E3B0879A2F2AEEB6752E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				120D2EF80AD9ACF9346F9826 /* Pods-Life Goals.debug.xcconfig */,
+				135A1885CF1CD3E49DF67BC3 /* Pods-Life Goals.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5123EE161E5BDF5A00087C2D = {
 			isa = PBXGroup;
 			children = (
 				5123EE211E5BDF5B00087C2D /* Life Goals */,
 				5123EE201E5BDF5B00087C2D /* Products */,
+				17D5E3B0879A2F2AEEB6752E /* Pods */,
+				FBD0E5A01CDFFE0AAEB037B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +144,7 @@
 				5123EE2B1E5BDF5B00087C2D /* LaunchScreen.storyboard */,
 				5123EE2E1E5BDF5B00087C2D /* Info.plist */,
 				5123EE411E5E132100087C2D /* DataModel.xcdatamodeld */,
+				514CDCBE1E7F8E4F00173DC7 /* GoogleService-Info.plist */,
 			);
 			path = "Life Goals";
 			sourceTree = "<group>";
@@ -147,6 +168,7 @@
 				511198D61E6159D50080CF26 /* ImageCache.swift */,
 				511198D81E6165BF0080CF26 /* DateConvenient.swift */,
 				517B47D11E79B723007E9159 /* ConvenientClass.swift */,
+				514CDCC01E804BE400173DC7 /* AdsClass.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -199,6 +221,14 @@
 			name = TableViewController;
 			sourceTree = "<group>";
 		};
+		FBD0E5A01CDFFE0AAEB037B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				901F473000172616EF377D8F /* libPods-Life Goals.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,9 +236,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5123EE311E5BDF5B00087C2D /* Build configuration list for PBXNativeTarget "Life Goals" */;
 			buildPhases = (
+				1A0B20E2BE1628562FD58463 /* [CP] Check Pods Manifest.lock */,
 				5123EE1B1E5BDF5B00087C2D /* Sources */,
 				5123EE1C1E5BDF5B00087C2D /* Frameworks */,
 				5123EE1D1E5BDF5B00087C2D /* Resources */,
+				DC2E8EAC0C5E5605E347FE43 /* [CP] Embed Pods Frameworks */,
+				5E63FB1A0CDE8C0DB2EDE481 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,12 +293,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				5123EE2D1E5BDF5B00087C2D /* LaunchScreen.storyboard in Resources */,
+				514CDCBF1E7F8E4F00173DC7 /* GoogleService-Info.plist in Resources */,
 				5123EE2A1E5BDF5B00087C2D /* Assets.xcassets in Resources */,
 				5123EE281E5BDF5B00087C2D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A0B20E2BE1628562FD58463 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5E63FB1A0CDE8C0DB2EDE481 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Life Goals/Pods-Life Goals-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC2E8EAC0C5E5605E347FE43 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Life Goals/Pods-Life Goals-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5123EE1B1E5BDF5B00087C2D /* Sources */ = {
@@ -295,6 +377,7 @@
 				511198DB1E6166FE0080CF26 /* ExtendDate.swift in Sources */,
 				511198DF1E65F5460080CF26 /* GoalsTableViewCell.swift in Sources */,
 				5123EE3E1E5E04DC00087C2D /* LongLifeGoalsViewController.swift in Sources */,
+				514CDCC11E804BE400173DC7 /* AdsClass.swift in Sources */,
 				512FD7851E6DE5E0005A22E5 /* NotesViewController.swift in Sources */,
 				512FD7811E69E9D6005A22E5 /* PhotoViewController.swift in Sources */,
 				512FD7871E6E97B6005A22E5 /* NoteViewController.swift in Sources */,
@@ -368,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -411,7 +494,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -421,12 +504,13 @@
 		};
 		5123EE321E5BDF5B00087C2D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 120D2EF80AD9ACF9346F9826 /* Pods-Life Goals.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QQLPZRZ2LG;
 				INFOPLIST_FILE = "Life Goals/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Ronald.Life-Goals";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ronald.Life-Goals.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -434,12 +518,13 @@
 		};
 		5123EE331E5BDF5B00087C2D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 135A1885CF1CD3E49DF67BC3 /* Pods-Life Goals.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QQLPZRZ2LG;
 				INFOPLIST_FILE = "Life Goals/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Ronald.Life-Goals";
+				PRODUCT_BUNDLE_IDENTIFIER = "Ronald.Life-Goals.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

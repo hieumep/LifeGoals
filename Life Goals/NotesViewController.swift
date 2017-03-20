@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import Firebase
 
-class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextViewDelegate {
+class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UITextViewDelegate,GADBannerViewDelegate {
 
     @IBOutlet weak var termLabel: UILabel!
     @IBOutlet weak var expiredLabel: UILabel!
@@ -23,6 +24,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var goalItem : Goal?
     var expiredDate : Date?
     var indexPathArray = [IndexPath]()
+    let bannerAds = AdsClass("ca-app-pub-5300329803332227/8769289390")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,9 +72,22 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             goalLabel.text = goalItem.goal
             goalDescriptionLabel.text = goalItem.goalDescription
             
-            
                 
             fetchedResultController.delegate = self
+            
+            //add banner ads
+            appDelegate.adMobBannerAdView.rootViewController = self
+            appDelegate.adMobBannerAdView.adSize = kGADAdSizeSmartBannerPortrait
+            appDelegate.adMobBannerAdView.clipsToBounds = true
+            let request = GADRequest()
+            request.testDevices = [ kGADSimulatorID, "6b51d512acddcf480db24ff78d558102", "cb1c8343476bbbee38f702399185600f" ]; // Simulator
+            appDelegate.adMobBannerAdView.load(request)
+            appDelegate.adMobBannerAdView.center = CGPoint(
+                x: view.frame.midX,
+                y: appDelegate.adMobBannerAdView.frame.height / 2)
+            
+            view.addSubview(appDelegate.adMobBannerAdView)
+           
         }
     }
     

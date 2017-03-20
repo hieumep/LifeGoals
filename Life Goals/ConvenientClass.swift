@@ -10,8 +10,9 @@ import Foundation
 import CoreData
 import UserNotifications
 import UIKit
+import Firebase
 
-class ConvenientClass  {
+class ConvenientClass {
     class func shareInstance() -> ConvenientClass {
         struct Static{
             static let instance = ConvenientClass()
@@ -22,7 +23,7 @@ class ConvenientClass  {
     let prefs = UserDefaults()
     lazy var context : NSManagedObjectContext = {
         return CoreDataStackManager.SharedInstance().managedObjectContext
-    }()
+    }()    
     
     //set category of UserNotifications
     let category = UNNotificationCategory(identifier: "", actions: [], intentIdentifiers: [], options: [])
@@ -179,18 +180,6 @@ class ConvenientClass  {
         }
     
     }
-    //func rating App
-    func rateApp(appId: String, completion: @escaping ((_ success: Bool)->())) {
-        guard let url = URL(string : "itms-apps://itunes.apple.com/app/1116877061" + appId) else {
-            completion(false)
-            return
-        }
-        guard #available(iOS 10, *) else {
-            completion(UIApplication.shared.openURL(url))
-            return
-        }        
-        UIApplication.shared.open(url, options: [:], completionHandler: completion)
-    }
     
     //func call alert rate app 
     func rateReviewApp(appId: String) -> UIAlertController{
@@ -208,8 +197,7 @@ class ConvenientClass  {
         
         let laterAction = UIAlertAction(title: "Maybe Later", style:.default, handler: { action in
             self.prefs.set(0, forKey: "rateReview")
-    })
-    
+    })    
         alertVC.addAction(rateAction)
         alertVC.addAction(laterAction)
         return alertVC

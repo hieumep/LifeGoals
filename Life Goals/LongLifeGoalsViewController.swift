@@ -17,6 +17,7 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     
+    let bannerAds = AdsClass("ca-app-pub-5300329803332227/4845290598")
     let fetchRequest : NSFetchRequest<Goal> = Goal.fetchRequest()
     var indexPathArray = [IndexPath]()
     lazy var context : NSManagedObjectContext = {
@@ -42,10 +43,11 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
         authorLabel.text = "__" + quoteItem.author + "__"
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //tableView.reloadData()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let maxY = navigationController?.navigationBar.frame.maxY
+        let bannerView = bannerAds.getBannerView(maxY!,rootViewController : self)
+        view.addSubview(bannerView)
     }
     
     override func didReceiveMemoryWarning() {
