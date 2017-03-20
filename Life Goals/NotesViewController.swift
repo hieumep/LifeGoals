@@ -18,6 +18,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalDescriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     var goalItem : Goal?
     var expiredDate : Date?
@@ -59,7 +60,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             if goalItem.done {
                 doneLabel.text = "Done"
-                navigationItem.rightBarButtonItems?[0].isEnabled = false
+                addButton.isEnabled = false
             } else {
                 doneLabel.text = "Not Done"
             }
@@ -107,13 +108,22 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else {
             cell.photo.image = UIImage.init(named: "LogoIcon50")
         }
-        if noteItem.done {
-            cell.doneButton.setImage(UIImage.init(named: "checked"), for: .normal)
-        } else {
-            cell.doneButton.setImage(UIImage.init(named: "NotCheck"), for: .normal)
+        if !goalItem!.done {
+            if noteItem.done {
+                cell.doneButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+            } else {
+                cell.doneButton.setImage(#imageLiteral(resourceName: "NotCheck"), for: .normal)
+            }
+            cell.doneButton.tag = indexPathArray.count - 1
+            cell.doneButton.addTarget(self, action: #selector(self.setDone(_:)), for: .touchUpInside)
+        }else {
+            if noteItem.done {
+                cell.doneButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+            } else {
+                cell.doneButton.setImage(#imageLiteral(resourceName: "ExpiredDone"), for: .normal)
+            }
+            cell.doneButton.isEnabled = false
         }
-        cell.doneButton.tag = indexPathArray.count - 1
-        cell.doneButton.addTarget(self, action: #selector(self.setDone(_:)), for: .touchUpInside)
     }
     
     // set done or not

@@ -47,7 +47,7 @@ extension DoneViewController : UITextViewDelegate, UIGestureRecognizerDelegate {
         }
     }
     
-    func tapHideKeyboard(){
+    func tapHideKeyboard(_ gesture : UIGestureRecognizer){
         self.view.endEditing(true)
     }
     

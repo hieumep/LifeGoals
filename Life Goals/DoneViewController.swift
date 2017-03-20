@@ -55,15 +55,15 @@ class DoneViewController: UIViewController {
                 for i in 0 ... 4 {
                     starButtons[i].isEnabled = false
                 }
+                experienceTextView.text = item.experience
                 doneButton.setTitle("Hold to Edit", for: .normal)
             }
-            experienceTextView.text = item.experience
         }
         
         //set tap to hide keyboards
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapHideKeyboard))
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapHideKeyboard(_:)))
         tapGesture?.numberOfTapsRequired = 1
-        addKeyboardDismissRecoginze()
+        self.view.addGestureRecognizer(tapGesture!)
         
         //set long press gesture
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressToSave(gestureRecognizer:)))
