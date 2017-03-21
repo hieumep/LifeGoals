@@ -54,6 +54,7 @@ class DailyNoteViewController: UIViewController{
             }else {
                 var item = [String : String]()
                 item[DailyNoteObject.keys.dailyNote] = dailyNoteText.text
+                item[DailyNoteObject.keys.createdDate] = Date().formatShortDateToString()
                 _ = DailyNoteObject.init(item: item, context: context)
             }
             saveContext()

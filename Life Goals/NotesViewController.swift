@@ -24,7 +24,6 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var goalItem : Goal?
     var expiredDate : Date?
     var indexPathArray = [IndexPath]()
-    let bannerAds = AdsClass("ca-app-pub-5300329803332227/8769289390")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,21 +72,8 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             goalDescriptionLabel.text = goalItem.goalDescription
             
                 
-            fetchedResultController.delegate = self
+            fetchedResultController.delegate = self            
             
-            //add banner ads
-            appDelegate.adMobBannerAdView.rootViewController = self
-            appDelegate.adMobBannerAdView.adSize = kGADAdSizeSmartBannerPortrait
-            appDelegate.adMobBannerAdView.clipsToBounds = true
-            let request = GADRequest()
-            request.testDevices = [ kGADSimulatorID, "6b51d512acddcf480db24ff78d558102", "cb1c8343476bbbee38f702399185600f" ]; // Simulator
-            appDelegate.adMobBannerAdView.load(request)
-            appDelegate.adMobBannerAdView.center = CGPoint(
-                x: view.frame.midX,
-                y: appDelegate.adMobBannerAdView.frame.height / 2)
-            
-            view.addSubview(appDelegate.adMobBannerAdView)
-           
         }
     }
     
@@ -141,6 +127,21 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let noteVC = storyboard?.instantiateViewController(withIdentifier: "noteViewController") as! NoteViewController
+        let item = fetchedResultController.object(at: indexPath)
+        noteVC.noteItem = item
+        present(noteVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let item = fetchedResultController.object(at: indexPath)
+            context.delete(item)
+        }
+    }
+    
+    
     // set done or not
     func setDone(_ sender: UIButton) {
         let indexPath = indexPathArray[sender.tag]
@@ -168,6 +169,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         tableView.reloadData()
     }
+    
     /*
     // MARK: - Navigation
 

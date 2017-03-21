@@ -18,6 +18,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let fetchRequest : NSFetchRequest<DailyNote> = DailyNote.fetchRequest()
     let bannerAds = AdsClass("ca-app-pub-5300329803332227/3368557399")
+    var indexPathArray = [IndexPath]()
     
     lazy var context : NSManagedObjectContext = {
         return CoreDataStackManager.SharedInstance().managedObjectContext
@@ -25,7 +26,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     lazy var fetchedResultsController : NSFetchedResultsController<DailyNote> = {
         self.fetchRequest.sortDescriptors = [NSSortDescriptor(key: DailyNoteObject.keys.dailyNote, ascending: true)]
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: #keyPath(DailyNote.createdDate), cacheName: nil)
         fetchedResultsController.delegate = self
         return fetchedResultsController
     }()
@@ -48,6 +49,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func segmeted(_ sender: UISegmentedControl) {
+        indexPathArray.removeAll()
         loadData(sender.selectedSegmentIndex)
     }
     
@@ -71,9 +73,19 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let section = fetchedResultsController.sections else { return 0}
+        return section.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let sectionInfo = fetchedResultsController.sections else { return nil}
+        return sectionInfo[section].name
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sessionInfo = fetchedResultsController.sections![section]
-        return sessionInfo.numberOfObjects
+        guard let sectionInfo = fetchedResultsController.sections else { return 0}
+        return sectionInfo[section].numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,12 +103,13 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
         }else {
             cell.doneButton.setImage(UIImage.init(named: "NotCheck"), for: .normal)
         }
-        cell.doneButton.tag = indexPath.row
+        indexPathArray.append(indexPath)
+        cell.doneButton.tag = indexPathArray.count - 1
         cell.doneButton.addTarget(self, action: #selector(self.checkDone(_:)), for: .touchUpInside)
     }
     
     func checkDone(_ sender : UIButton) {
-        let indexPath = NSIndexPath(row: sender.tag, section: 0)
+        let indexPath = indexPathArray[sender.tag]
         let item = fetchedResultsController.object(at: indexPath as IndexPath)
         item.done = !item.done
         saveContext()
@@ -123,6 +136,18 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+            case .insert :
+                tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+            case .delete :
+                tableView.deleteSections(IndexSet(integer : sectionIndex), with: .fade)
+            default:
+                break
+        }
+
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {

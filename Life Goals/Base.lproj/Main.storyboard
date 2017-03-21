@@ -398,7 +398,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y8g-6J-nlc" id="Hrh-Wx-Pxg">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZIx-jf-2PA">
@@ -660,7 +660,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h1c-MQ-vPz" id="nd3-ej-doT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earning 10000 within 3 months with the new house" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4x-mC-S9W">
@@ -756,7 +756,7 @@
         <!--Note View Controller-->
         <scene sceneID="vCi-Px-0UN">
             <objects>
-                <viewController id="vnt-59-vDZ" customClass="NoteViewController" customModule="Life_Goals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="noteViewController" id="vnt-59-vDZ" customClass="NoteViewController" customModule="Life_Goals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Wp-oY-A4Y"/>
                         <viewControllerLayoutGuide type="bottom" id="pXy-UJ-ZX9"/>
@@ -969,7 +969,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sF9-fg-wOr" id="Bhd-hM-jAD">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJ0-Ep-vNl">
@@ -1524,19 +1524,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="2" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="pGX-pc-YH4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="2" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="pGX-pc-YH4">
                                 <rect key="frame" x="0.0" y="178" width="320" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dailyNotesCell" rowHeight="85" id="lEU-uT-oLf" customClass="DailyNotesTableViewCell" customModule="Life_Goals" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="2" width="320" height="85"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dailyNotesCell" rowHeight="92" id="lEU-uT-oLf" customClass="DailyNotesTableViewCell" customModule="Life_Goals" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="2" width="320" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lEU-uT-oLf" id="WcP-wS-VWf">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hirsch thích lối sống của thị trấn nhỏ nhất nước Mỹ này. Ông thích việc không phải dừng lại chờ đèn đỏ khi đi từ nhà tới Buford" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjn-QD-ZXH">
-                                                    <rect key="frame" x="10" y="0.0" width="300" height="40"/>
+                                                    <rect key="frame" x="10" y="10" width="300" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="3w5-Qy-m1f"/>
                                                     </constraints>
@@ -1545,7 +1545,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCk-cI-YvF">
-                                                    <rect key="frame" x="280" y="45" width="30" height="30"/>
+                                                    <rect key="frame" x="280" y="55" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="e55-gS-Kya"/>
                                                         <constraint firstAttribute="width" constant="30" id="osM-P8-gAZ"/>
@@ -1558,7 +1558,7 @@
                                                 <constraint firstItem="Sjn-QD-ZXH" firstAttribute="leading" secondItem="WcP-wS-VWf" secondAttribute="leading" constant="10" id="D4K-0W-5Qn"/>
                                                 <constraint firstAttribute="trailing" secondItem="Sjn-QD-ZXH" secondAttribute="trailing" constant="10" id="Lbc-qK-10w"/>
                                                 <constraint firstItem="BCk-cI-YvF" firstAttribute="top" secondItem="Sjn-QD-ZXH" secondAttribute="bottom" constant="5" id="Ybj-Iv-hkA"/>
-                                                <constraint firstItem="Sjn-QD-ZXH" firstAttribute="top" secondItem="WcP-wS-VWf" secondAttribute="top" id="jtU-R9-GRx"/>
+                                                <constraint firstItem="Sjn-QD-ZXH" firstAttribute="top" secondItem="WcP-wS-VWf" secondAttribute="top" constant="10" id="jtU-R9-GRx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1740,7 +1740,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zc2-wt-qWV" id="9k4-Wg-cai">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It’s better to be at the bottom of the ladder you want to climb than at the top of the one you don’t." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRg-Rq-tPP">

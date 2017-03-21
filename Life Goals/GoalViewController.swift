@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import Firebase
 
-class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, GADInterstitialDelegate {
 
     @IBOutlet weak var goalDescriptionText: UITextView!
     @IBOutlet weak var goalText: UITextField!
@@ -28,6 +29,8 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
     var expiredDate = Date().getTomorrow()
     var goalItem : Goal?
     var shortTerm = true
+    let adUnitID = "ca-app-pub-5300329803332227/1246022596"
+    var interstitial: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,8 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         longPress.delegate = self
         saveButton.addGestureRecognizer(longPress)
         setupLayout()
+        
+        interstitial = createAndLoadInterstitial()
         
         // Do any additional setup after loading the view.
     }
@@ -180,7 +185,11 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
            // saveButton.setTitle("Saved", for: .normal)
            // saveButton.isEnabled = false
             saveOrEditData()
-            let _ = navigationController?.popViewController(animated: true)
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+            }else {
+                _ = navigationController?.popViewController(animated: true)
+            }
         }
     }
     
@@ -221,4 +230,19 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         }
         saveContext()    
     }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: adUnitID)
+        interstitial.delegate = self
+        let request = GADRequest()
+        request.testDevices = [ kGADSimulatorID, "6b51d512acddcf480db24ff78d558102", "cb1c8343476bbbee38f702399185600f"]
+        interstitial.load(request)
+        return interstitial
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+        _ = navigationController?.popViewController(animated: true)
+    }
+
 }

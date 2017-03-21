@@ -12,9 +12,11 @@ class DailyNoteObject : NSManagedObject {
     struct keys {
         static let dailyNote = "dailyNote"
         static let done = "done"
+        static let createdDate = "createdDate"
     }
     
     @NSManaged var dailyNote : String
+    @NSManaged var createdDate : String
     
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)
@@ -24,5 +26,6 @@ class DailyNoteObject : NSManagedObject {
         let entity = NSEntityDescription.entity(forEntityName: "DailyNote", in: context)
         super.init(entity: entity!, insertInto: context)
         dailyNote = item[keys.dailyNote]!
+        createdDate = item[keys.createdDate]!
     }
 }

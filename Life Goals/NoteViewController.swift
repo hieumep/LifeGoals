@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import Firebase
 
-class NoteViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class NoteViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, GADInterstitialDelegate {
     
     
     @IBOutlet weak var note: UITextField!
@@ -21,11 +22,15 @@ class NoteViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var image : UIImage? = nil
     var tapGesture : UITapGestureRecognizer?
     var longPressGesture : UILongPressGestureRecognizer?
+    let adUnitID = "ca-app-pub-5300329803332227/1246022596"
+    var interstitial: GADInterstitial!
+    var noteItem : Note?
     
     @IBOutlet weak var saveButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        interstitial = createAndLoadInterstitial()
         // Do any additional setup after loading the view.
     }
     
@@ -53,14 +58,30 @@ class NoteViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         longPressGesture?.minimumPressDuration = 3
         longPressGesture?.delegate = self
         saveButton.addGestureRecognizer(longPressGesture!)
+        
+        //Load edit item to field
+        if let item = noteItem {
+            note.text = item.note
+            noteDescription.text = item.noteDescription
+            imageView.image = ImageCache.sharedInstance().getImageWithIdentifier(item.photo)
+            goalItem = noteItem?.goals
+            saveButton.setTitle("Hold to Edit", for: .normal)
+        }
     }
     
     //set action when hold long press
     func holdLongPress(gesture : UIGestureRecognizer) {
         if gesture.state == .ended {
            // print("done")
-            saveData()
-            dismiss(animated: true, completion: nil)
+            if note.text != "" {
+                saveData()
+                if interstitial.isReady {
+                    interstitial.present(fromRootViewController: self)
+                }else {
+                    _ = navigationController?.popViewController(animated: true)
+                }
+            }
+         //   dismiss(animated: true, completion: nil)
         }
     }
     
@@ -75,16 +96,26 @@ class NoteViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     //save data to database 
     func saveData(){
-        var item = [String:AnyObject]()
-        item[NoteObject.keys.note] = note.text as AnyObject
+        var noteDesc = ""
         if noteDescription.text != "Your note description..." {
-            item[NoteObject.keys.noteDescription] = noteDescription.text as AnyObject
+            noteDesc = noteDescription.text
         } else {
-            item[NoteObject.keys.noteDescription] = "" as AnyObject?
+            noteDesc = ""
         }
-        item[NoteObject.keys.photo_path] = ImageCache.sharedInstance().setImageRetunPath(image: image, date: Date()) as AnyObject
-        item[NoteObject.keys.goals] = goalItem
-        _ = NoteObject(noteItem: item, context: context)
+        if let noteItem = noteItem {
+            noteItem.note = note.text
+            noteItem.noteDescription = noteDesc
+            if image != nil {
+                noteItem.photo = ImageCache.sharedInstance().setImageRetunPath(image: image, date: Date())
+            }
+        }else {
+            var item = [String:AnyObject]()
+            item[NoteObject.keys.note] = note.text as AnyObject
+            item[NoteObject.keys.noteDescription] = noteDesc as AnyObject
+            item[NoteObject.keys.photo_path] = ImageCache.sharedInstance().setImageRetunPath(image: image, date: Date()) as AnyObject
+            item[NoteObject.keys.goals] = goalItem
+            _ = NoteObject(noteItem: item, context: context)
+        }
         saveContext()
     }
     
@@ -144,6 +175,20 @@ class NoteViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func deletePhoto(_ sender: Any) {
         image = nil
         imageView.image = image
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: adUnitID)
+        interstitial.delegate = self
+        let request = GADRequest()
+        request.testDevices = [ kGADSimulatorID, "6b51d512acddcf480db24ff78d558102", "cb1c8343476bbbee38f702399185600f"]
+        interstitial.load(request)
+        return interstitial
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+        _ = dismiss(animated: true, completion: nil)
     }
    
     //set image when image = nil

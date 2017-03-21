@@ -21,5 +21,14 @@ extension Date {
         let tomorrow = NSCalendar.current.date(byAdding: .day, value: 1, to: self)
         return tomorrow!
     }
+    
+    func formatShortDateToString() -> String{
+        let calendar = Calendar(identifier: .gregorian)
+        let dateComponents = calendar.dateComponents([.day,.month,.year], from: self)
+        var dateFormat = ""
+        dateFormat = "\(dateComponents.month!)" + "/\(dateComponents.day!)" + "/\(dateComponents.year!)"
+        print(dateFormat)
+        return dateFormat
+    }
 
 }

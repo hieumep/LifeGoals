@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import Firebase
 
-class QuoteViewController: UIViewController, UITextViewDelegate {
+class QuoteViewController: UIViewController, UITextViewDelegate, GADInterstitialDelegate {
     
     @IBOutlet weak var authorText: CustomTextField!
     @IBOutlet weak var quoteText: CustomTextView!
@@ -17,6 +18,9 @@ class QuoteViewController: UIViewController, UITextViewDelegate {
     
     var quoteItem : Quote?
     var tapGesture : UITapGestureRecognizer? = nil
+    let adUnitID = "ca-app-pub-5300329803332227/1246022596"
+    var interstitial: GADInterstitial!
+    
     lazy var context : NSManagedObjectContext = {
         return CoreDataStackManager.SharedInstance().managedObjectContext
     }()
@@ -34,6 +38,7 @@ class QuoteViewController: UIViewController, UITextViewDelegate {
             authorText.text = quoteItem.author
             saveButton.setTitle("Edit", for: .normal)
         }
+        interstitial = createAndLoadInterstitial()
     }
     
     func tapHideKeyboard(_ gesture: UIGestureRecognizer) {
@@ -51,9 +56,15 @@ class QuoteViewController: UIViewController, UITextViewDelegate {
                 quoteItem[QuoteObject.keys.author] = authorText.text as AnyObject?
                 _ = QuoteObject(quoteItem: quoteItem, context: context)
             }
+            saveContext()
+            
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+            }else {
+                _ = navigationController?.popViewController(animated: true)
+            }
         }
-        saveContext()
-        _ = navigationController?.popViewController(animated: true)
+        
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -81,5 +92,18 @@ class QuoteViewController: UIViewController, UITextViewDelegate {
     func saveContext() {
         CoreDataStackManager.SharedInstance().saveContext()
     }
-
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: adUnitID)
+        interstitial.delegate = self
+        let request = GADRequest()
+        request.testDevices = [ kGADSimulatorID, "6b51d512acddcf480db24ff78d558102", "cb1c8343476bbbee38f702399185600f"]
+        interstitial.load(request)
+        return interstitial
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+        _ = navigationController?.popViewController(animated: true)
+    }
 }
