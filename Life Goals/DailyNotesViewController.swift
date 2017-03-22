@@ -33,6 +33,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        indexPathArray.removeAll()
         loadData(segmentedControl.selectedSegmentIndex)
         let quoteItem = ConvenientClass.shareInstance().getRandomQuote()
         quoteLabel.text = quoteItem.quote
@@ -139,6 +140,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        if sectionInfo.numberOfObjects > 0 {
         switch type {
             case .insert :
                 tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
@@ -147,36 +149,45 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
             default:
                 break
         }
-
+        }
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-        case .insert:
-            if let indexPath = newIndexPath {
-                tableView.insertRows(at: [indexPath], with: .fade)
-            }
-            break
-            
-        case .delete :            
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .left)
+            case .insert:
+                if let indexPath = newIndexPath {
+                    tableView.insertRows(at: [indexPath], with: .fade)
+                }
                 break
-            }
-            
-        case .update :
-            if let indexPath = indexPath , let cell = tableView.cellForRow(at: indexPath) as? DailyNotesTableViewCell {
-                configureCell(cell: cell, indexPath: indexPath)
-            }
-            break
-            
-        case .move :
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-            if let indexPath = newIndexPath {
-                tableView.insertRows(at: [indexPath], with: .fade)
-            }
+            case .delete :
+                if let indexPath = indexPath {
+                    if tableView.numberOfRows(inSection: indexPath.section) == 1{
+                        tableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: .automatic)
+                    }else{
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                    }
+                    
+                }
+                break
+            case .update:
+                if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? DailyNotesTableViewCell {
+                    configureCell(cell: cell, indexPath: indexPath)
+                }
+                break
+                
+            case .move :
+                if let indexPath = indexPath {
+                    if tableView.numberOfRows(inSection: indexPath.section) == 1{
+                        tableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: .automatic)
+                    }else{
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                    }
+
+                }
+                if let indexPath = newIndexPath {
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+                break            
         }
     }
 

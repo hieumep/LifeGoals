@@ -235,7 +235,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
         let interstitial = GADInterstitial(adUnitID: adUnitID)
         interstitial.delegate = self
         let request = GADRequest()
-        request.testDevices = [ kGADSimulatorID, "6b51d512acddcf480db24ff78d558102", "cb1c8343476bbbee38f702399185600f"]
+        request.testDevices = [ kGADSimulatorID]
         interstitial.load(request)
         return interstitial
     }

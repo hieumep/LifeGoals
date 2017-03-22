@@ -102,7 +102,11 @@ class QuotesListViewController: UIViewController, UITableViewDelegate, UITableVi
             break
         case .delete :
             if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                if tableView.numberOfRows(inSection: indexPath.section) == 1{
+                    tableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: .automatic)
+                }else{
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
             }
             break
         case .update:
@@ -113,7 +117,12 @@ class QuotesListViewController: UIViewController, UITableViewDelegate, UITableVi
             
         case .move :
             if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                if tableView.numberOfRows(inSection: indexPath.section) == 1{
+                    tableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: .automatic)
+                }else{
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+
             }
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .automatic)
