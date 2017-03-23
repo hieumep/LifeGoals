@@ -98,8 +98,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="750"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wWc-d3-fZM">
-                                <rect key="frame" x="10" y="74" width="380" height="408"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wWc-d3-fZM">
+                                <rect key="frame" x="10" y="74" width="380" height="624"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mtn-gN-l6Q">
                                         <rect key="frame" x="0.0" y="0.0" width="380" height="30"/>
@@ -178,11 +178,11 @@
                                             <constraint firstAttribute="height" constant="24" id="ydy-hW-BYr"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NwY-Xj-YBA">
-                                        <rect key="frame" x="0.0" y="210" width="380" height="0.0"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NwY-Xj-YBA">
+                                        <rect key="frame" x="0.0" y="210" width="380" height="216"/>
                                         <subviews>
-                                            <datePicker hidden="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fld-Ok-qrt">
-                                                <rect key="frame" x="-10" y="-284" width="320" height="0.0"/>
+                                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fld-Ok-qrt">
+                                                <rect key="frame" x="0.0" y="0.0" width="380" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="509606789.59176201">
                                                     <!--2017-02-24 05:26:29 +0000-->
                                                 </date>
@@ -195,10 +195,10 @@
                                             </datePicker>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T3A-lJ-xVB">
-                                        <rect key="frame" x="0.0" y="218" width="380" height="24"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T3A-lJ-xVB">
+                                        <rect key="frame" x="0.0" y="434" width="380" height="24"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Upload the photo will motivate you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-Fg-4fO">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload the photo will motivate you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-Fg-4fO">
                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.95786434412002563" green="0.41091305017471313" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -210,30 +210,30 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="XhK-Ka-Jte"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8tl-Ms-j6b">
-                                        <rect key="frame" x="0.0" y="250" width="380" height="100"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8tl-Ms-j6b">
+                                        <rect key="frame" x="0.0" y="466" width="380" height="100"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lB4-mL-9XG">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lB4-mL-9XG">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="98o-l0-1at">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="98o-l0-1at">
                                                 <rect key="frame" x="300" y="2" width="80" height="96"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYH-6y-RY1">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYH-6y-RY1">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="22"/>
                                                         <state key="normal" image="Camera icon"/>
                                                         <connections>
                                                             <action selector="cameraAction:" destination="eg5-HF-0Be" eventType="touchUpInside" id="OR1-Yw-38c"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBR-5b-yG3">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBR-5b-yG3">
                                                         <rect key="frame" x="0.0" y="32" width="80" height="24"/>
                                                         <state key="normal" image="LibraryIcon"/>
                                                         <connections>
                                                             <action selector="galleryAction:" destination="eg5-HF-0Be" eventType="touchUpInside" id="oKM-2R-E7k"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7A-Yq-Yut">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7A-Yq-Yut">
                                                         <rect key="frame" x="0.0" y="66" width="80" height="30"/>
                                                         <state key="normal" image="NoColorDeleteIcon"/>
                                                         <connections>
@@ -247,10 +247,10 @@
                                             <constraint firstAttribute="height" constant="100" id="4mI-P7-EXX"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SmX-NJ-m0a">
-                                        <rect key="frame" x="0.0" y="358" width="380" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SmX-NJ-m0a">
+                                        <rect key="frame" x="0.0" y="574" width="380" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCA-It-SLE">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCA-It-SLE">
                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="50"/>
                                                 <gestureRecognizers/>
                                                 <constraints>

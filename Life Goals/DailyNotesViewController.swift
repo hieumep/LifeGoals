@@ -140,17 +140,18 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        if sectionInfo.numberOfObjects > 0 {
         switch type {
             case .insert :
                 tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
             case .delete :
-                tableView.deleteSections(IndexSet(integer : sectionIndex), with: .fade)
+                tableView.deleteSections(IndexSet(integer : sectionIndex), with: .fade)            
             default:
                 break
         }
-        }
+       
     }
+    
+    
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
@@ -161,23 +162,26 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
                 break
             case .delete :
                 if let indexPath = indexPath {
-                    if tableView.numberOfRows(inSection: indexPath.section) == 1{
+                    print("section : \(indexPath.section) and rows : \(indexPath.row)")
+                    if tableView.numberOfRows(inSection: indexPath.section) < 2 {
                         tableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: .automatic)
                     }else{
                         tableView.deleteRows(at: [indexPath], with: .automatic)
                     }
-                    
+                   indexPathArray.removeAll()
+                    tableView.reloadData()
                 }
                 break
             case .update:
                 if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? DailyNotesTableViewCell {
                     configureCell(cell: cell, indexPath: indexPath)
                 }
+                
                 break
                 
             case .move :
                 if let indexPath = indexPath {
-                    if tableView.numberOfRows(inSection: indexPath.section) == 1{
+                    if tableView.numberOfRows(inSection: indexPath.section) < 2 {
                         tableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: .automatic)
                     }else{
                         tableView.deleteRows(at: [indexPath], with: .automatic)
