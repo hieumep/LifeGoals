@@ -56,7 +56,7 @@ class NotesViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         
         
-            expiredDate = goalItem.expiredDate as? Date
+            expiredDate = goalItem.expiredDate as Date?
             expiredLabel.text = "Expired : \(expiredDate!.formatDateToString())"
             
             if goalItem.done {

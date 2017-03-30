@@ -25,7 +25,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
     }()
     
     lazy var fetchedResultsController : NSFetchedResultsController<DailyNote> = {
-        self.fetchRequest.sortDescriptors = [NSSortDescriptor(key: DailyNoteObject.keys.dailyNote, ascending: true)]
+        self.fetchRequest.sortDescriptors = [NSSortDescriptor(key: DailyNoteObject.keys.createdDate, ascending: true)]
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.context, sectionNameKeyPath: #keyPath(DailyNote.createdDate), cacheName: nil)
         fetchedResultsController.delegate = self
         return fetchedResultsController
@@ -158,6 +158,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
             case .insert:
                 if let indexPath = newIndexPath {
                     tableView.insertRows(at: [indexPath], with: .fade)
+                    tableView.reloadData()
                 }
                 break
             case .delete :
@@ -176,7 +177,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
                 if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? DailyNotesTableViewCell {
                     configureCell(cell: cell, indexPath: indexPath)
                 }
-                
+                tableView.reloadData()
                 break
                 
             case .move :
@@ -191,6 +192,7 @@ class DailyNotesViewController: UIViewController, UITableViewDelegate, UITableVi
                 if let indexPath = newIndexPath {
                     tableView.insertRows(at: [indexPath], with: .automatic)
                 }
+                tableView.reloadData()
                 break            
         }
     }

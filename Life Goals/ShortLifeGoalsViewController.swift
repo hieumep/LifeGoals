@@ -87,8 +87,8 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
             cell.photo.image = UIImage.init(named: "LogoIcon50")
         }
         let userCalendar = NSCalendar.current
-        let createdDate = goalItem.createdDate as! Date
-        let expriedDate = goalItem.expiredDate as! Date
+        let createdDate = goalItem.createdDate! as Date
+        let expriedDate = goalItem.expiredDate! as Date
         let currentDate = Date()
         let daysBetweenExpired = userCalendar.dateComponents([.day,.hour], from: createdDate, to: expriedDate)
         let daysBetweenCurrent = userCalendar.dateComponents([.day,.hour], from: createdDate, to: currentDate)
@@ -112,7 +112,7 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
                 cell.doneLabel.setImage(UIImage.init(named: "ExpiredDone"), for: .normal)
                 cell.progessLabel.text = "Exprired"
             }else {
-                let doneDate = goalItem.doneDate as! Date
+                let doneDate = goalItem.doneDate! as Date
                 cell.progessLabel.text = "Achived at \(doneDate.formatDateToString())"
             }
         } else {
@@ -161,7 +161,8 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
         case .insert:
             if let newPath = newIndexPath {
                 tableView.insertRows(at: [newPath], with: .fade)
-                indexPathArray.append(newPath)
+                //indexPathArray.append(newPath)
+                tableView.reloadData()
                 print("Number of array :\(indexPathArray.count)")
                 break
             }
@@ -182,7 +183,9 @@ class ShortLifeGoalsViewController: UIViewController, UITableViewDelegate, UITab
             
             if let newIndexPath = newIndexPath {
                 tableView.insertRows(at: [newIndexPath], with: .left)
+                
             }
+            tableView.reloadData()
             print("do move")
             break;
         }

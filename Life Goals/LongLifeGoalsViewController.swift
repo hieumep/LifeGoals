@@ -82,8 +82,8 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
             cell.photo.image = UIImage.init(named: "LogoIcon50")
         }
         let userCalendar = NSCalendar.current
-        let createdDate = goalItem.createdDate as! Date
-        let expriedDate = goalItem.expiredDate as! Date
+        let createdDate = goalItem.createdDate! as Date
+        let expriedDate = goalItem.expiredDate! as Date
         let currentDate = Date()
         let daysBetweenExpired = userCalendar.dateComponents([.day], from: createdDate, to: expriedDate)
         let daysBetweenCurrent = userCalendar.dateComponents([.day], from: createdDate, to: currentDate)
@@ -107,7 +107,7 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
                 cell.doneLabel.setImage(UIImage.init(named: "ExpiredDone"), for: .normal)
                 cell.progessLabel.text = "Expired"
             }else {
-                let doneDate = goalItem.doneDate as! Date
+                let doneDate = goalItem.doneDate! as Date
                 cell.progessLabel.text = "Achived at \(doneDate.formatDateToString())"
             }
         } else {
@@ -163,14 +163,14 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
         case .insert:
             if let newPath = newIndexPath {
                 tableView.insertRows(at: [newPath], with: .fade)
-                indexPathArray.append(newPath)
+                //indexPathArray.append(newPath)
+                tableView.reloadData()
                 print("Number of array :\(indexPathArray.count)")
                 break
             }
         case .delete :
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .left)
-                print("only delete")
                 tableView.reloadData()
                 break
             }
@@ -185,7 +185,9 @@ class LongLifeGoalsViewController: UIViewController, UITableViewDelegate, UITabl
             
             if let newIndexPath = newIndexPath {
                 tableView.insertRows(at: [newIndexPath], with: .left)
+                
             }
+            tableView.reloadData()
             print("do move")
             break;
         }

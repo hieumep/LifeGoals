@@ -107,7 +107,7 @@ class GoalViewController: UIViewController,UIImagePickerControllerDelegate, UINa
             goalText.text = goalItem.goal
             goalDescriptionText.text = goalItem.goalDescription
             shortTem.isOn = goalItem.shortTerm
-            expiredDate = goalItem.expiredDate as! Date
+            expiredDate = goalItem.expiredDate! as Date
             expiredDateButton.setTitle(expiredDate.formatDateToString(), for: .normal)
             datePicker.date = expiredDate
             image = ImageCache.sharedInstance().getImageWithIdentifier(goalItem.photo)

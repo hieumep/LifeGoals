@@ -99,7 +99,7 @@ class ConvenientClass {
         do {
             let goalItems = try context.fetch(fetchRequest) as! [Goal]
             for item in goalItems {
-                let expiredDate = item.expiredDate as! Date
+                let expiredDate = item.expiredDate! as Date
                 let curreDate = Date()
                 if !item.done {
                     if curreDate.compare(expiredDate) != .orderedAscending {

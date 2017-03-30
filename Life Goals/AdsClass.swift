@@ -22,7 +22,7 @@ class AdsClass : NSObject, GADBannerViewDelegate, GADInterstitialDelegate {
         bannerView.rootViewController = rootViewController
         bannerView.clipsToBounds = true
         let request = GADRequest()
-       // request.testDevices = [ kGADSimulatorID, "6b51d512acddcf480db24ff78d558102", "cb1c8343476bbbee38f702399185600f" ]; // Simulator
+        request.testDevices = [ kGADSimulatorID] // Simulator
         bannerView.load(request)
         bannerView.frame = CGRect(x: 0, y: maxY, width: bannerView.frame.width, height: bannerView.frame.height)
         return bannerView
@@ -45,7 +45,8 @@ class AdsClass : NSObject, GADBannerViewDelegate, GADInterstitialDelegate {
         let request = GADRequest()
         // Request test ads on devices you specify. Your test device ID is printed to the console when
         // an ad request is made.
-       // request.testDevices = [ kGADSimulatorID, "6b51d512acddcf480db24ff78d558102", "cb1c8343476bbbee38f702399185600f"]
+        request.testDevices = [kGADSimulatorID]
+         //"6b51d512acddcf480db24ff78d558102", "cb1c8343476bbbee38f702399185600f"
         interstitial.load(request)
         return interstitial
         
