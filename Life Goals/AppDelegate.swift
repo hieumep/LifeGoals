@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GADBannerViewDelegate {
             prefs.set(numberOfActiveApp, forKey: "rateReview")
             if numberOfActiveApp == numberTurnRateApp {
                 DispatchQueue.main.async(execute: {
-                    let alertVC = ConvenientClass.shareInstance().rateReviewApp(appId: "1116877061")
+                    let alertVC = ConvenientClass.shareInstance().rateReviewApp(appId: "1217722664")
                     self.window?.rootViewController?.present(alertVC, animated: true, completion: nil)
                 })
 

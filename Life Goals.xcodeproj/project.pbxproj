@@ -507,14 +507,14 @@
 			baseConfigurationReference = 120D2EF80AD9ACF9346F9826 /* Pods-Life Goals.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = QQLPZRZ2LG;
 				INFOPLIST_FILE = "Life Goals/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ronald.Life-Goals.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8b189cd6-5724-4c68-9d64-05bb38f53007";
-				PROVISIONING_PROFILE_SPECIFIER = LifeGoalTestProvision;
+				PROVISIONING_PROFILE = "acefd91c-971c-4c0f-9c01-4054fe370b19";
+				PROVISIONING_PROFILE_SPECIFIER = LifeGoalApStore;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -524,14 +524,14 @@
 			baseConfigurationReference = 135A1885CF1CD3E49DF67BC3 /* Pods-Life Goals.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = QQLPZRZ2LG;
 				INFOPLIST_FILE = "Life Goals/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Ronald.Life-Goals.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8b189cd6-5724-4c68-9d64-05bb38f53007";
-				PROVISIONING_PROFILE_SPECIFIER = LifeGoalTestProvision;
+				PROVISIONING_PROFILE = "acefd91c-971c-4c0f-9c01-4054fe370b19";
+				PROVISIONING_PROFILE_SPECIFIER = LifeGoalApStore;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
