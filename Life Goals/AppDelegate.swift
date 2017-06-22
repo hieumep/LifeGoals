@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GADBannerViewDelegate {
     var window: UIWindow?
     var pointDictonary : [Int:Int16] = [0:0,1:3,2:4,3:5,4:6,5:7]
     let prefs = UserDefaults.standard
-    let numberTurnRateApp = 20
+    let numberTurnRateApp = 40
     var adMobBannerAdView: GADBannerView! = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
